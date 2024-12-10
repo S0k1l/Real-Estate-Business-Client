@@ -6,3 +6,23 @@ body {
   font-family: "Urbanist", sans-serif;
   background-color: black;
 }
+
+p {
+  @apply text-gray-60 2xl:text-lg lg:text-base text-sm font-medium leading-normal;
+}
+
+.details-highlight {
+  @apply bg-gray-10 shadow-inset-1-gray-custom px-3.5 py-2 rounded-3xl w-fit flex flex-row gap-1;
+}
+
+.details-highlight img {
+  @apply 2xl:w-6 w-5;
+}
+
+.details-highlight span {
+  @apply 2xl:text-lg text-sm leading-normal font-medium text-white;
+}
+
+.arrow-btn {
+  @apply 2xl:p-3.5 2xl:w-14 p-2.5 w-11 rounded-full shadow-inset-1-gray-custom;
+}

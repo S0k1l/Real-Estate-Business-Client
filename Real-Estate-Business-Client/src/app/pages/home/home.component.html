@@ -10,7 +10,7 @@
         class="flex flex-col 2xl:gap-6 lg:gap-5 gap-4 w-full relative xl:pr-2 pr-10 -z-10"
       >
         <img
-          src="link-btn.svg"
+          src="icons/link-btn.svg"
           class="absolute 2xl:w-44 2xl:h-44 lg:h-32 ld:w-32 w-28 h-28 2xl:-right-[168px] lg:-right-28 md:-right-[72px] md:top-0 -top-28"
         />
         <span
@@ -23,10 +23,10 @@
         </p>
       </div>
       <div class="flex md:flex-row flex-col 2xl:gap-5 gap-4 text-white w-full">
-        <button class="shadow-inset-1-gray-custom hover:bg-gray-15">
+        <button class="shadow-inset-1-gray-custom hero-button hover:bg-gray-15">
           Learn More
         </button>
-        <button class="bg-purple-60 hover:bg-purple-65">
+        <button class="bg-purple-60 hero-button hover:bg-purple-65">
           Browse Properties
         </button>
       </div>
@@ -50,24 +50,88 @@
     class="grid grid-cols-4 2xl:gap-5 gap-2.5 md:p-5 p-2.5 md:m-0 mt-10 mx-4 md:rounded-none rounded-xl bg-gray-8 border-solid border border-gray-15 md:shadow-10-gray-custom shadow-4-gray-custom"
   >
     <button class="hero-item-lg">
-      <img src="arrow-up-right.svg" class="hero-arrow" />
-      <img src="building-storefront.svg" class="hero-bnt-icon" />
+      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
+      <img src="icons/building-storefront.svg" class="hero-bnt-icon" />
       <span>Find Your Dream Home</span>
     </button>
     <button class="hero-item-lg">
-      <img src="arrow-up-right.svg" class="hero-arrow" />
-      <img src="banknotes.svg" class="hero-bnt-icon" />
+      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
+      <img src="icons/banknotes.svg" class="hero-bnt-icon" />
       <span>Unlock Property Value</span>
     </button>
     <button class="hero-item-lg">
-      <img src="arrow-up-right.svg" class="hero-arrow" />
-      <img src="building-office-2.svg" class="hero-bnt-icon" />
+      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
+      <img src="icons/building-office-2.svg" class="hero-bnt-icon" />
       <span>Effortless Property Management</span>
     </button>
     <button class="hero-item-lg">
-      <img src="arrow-up-right.svg" class="hero-arrow" />
-      <img src="sun.svg" class="hero-bnt-icon" />
+      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
+      <img src="icons/sun.svg" class="hero-bnt-icon" />
       <span>Smart Investments, Informed Decisions</span>
     </button>
+  </div>
+</div>
+<div
+  class="w-full flex flex-col 2xl:px-40 2xl:pt-36 2xl:gap-36 lg:pt-28 lg:px-20 lg:gap-14 md:px-8 pt-20 px-4 gap-20"
+>
+  <div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
+    <div class="flex flex-row">
+      <div class="flex flex-col md:w-3/4 gap-3.5 relative">
+        <img
+          src="icons/stars-divider.svg"
+          class="2xl:w-16 lg:w-14 w-11 absolute -left-4 -top-8"
+        />
+        <span class="heading">Featured Properties</span>
+        <p>
+          Explore our handpicked selection of featured properties. Each listing
+          offers a glimpse into exceptional homes and investments available
+          through Estatein. Click "View Details" for more information.
+        </p>
+      </div>
+      <div class="md:w-1/4 md:flex md:justify-end md:items-end hidden">
+        <button class="btn-gray">View All Properties</button>
+      </div>
+    </div>
+    <div class="flex flex-col 2xl:gap-12 lg:gap-10 gap-7">
+      <div
+        class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 grid-rows-1 2xl:gap-7 gap-5"
+      >
+        <app-featured-properties-card
+          *ngFor="let item of visibleItems"
+          [details]="item"
+        ></app-featured-properties-card>
+      </div>
+      <div class="w-full pt-5 shadow-inset-1-gray-top-custom">
+        <div class="md:flex md:flex-row md:justify-between hidden">
+          <span
+            class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
+            >01 <span class="text-gray-60">of 60</span></span
+          >
+          <div class="flex flex-row gap-2.5">
+            <button class="arrow-btn">
+              <img src="icons/arrow-left.svg" />
+            </button>
+            <button class="arrow-btn">
+              <img src="icons/arrow-right.svg" />
+            </button>
+          </div>
+        </div>
+        <div class="md:hidden flex flex-row justify-between">
+          <button class="btn-gray">View All Properties</button>
+          <div class="flex flex-row gap-2.5 items-center">
+            <button class="arrow-btn">
+              <img src="icons/arrow-left.svg" />
+            </button>
+            <span
+              class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
+              >01 <span class="text-gray-60">of 60</span></span
+            >
+            <button class="arrow-btn">
+              <img src="icons/arrow-right.svg" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,57 @@
+<div
+  class="flex flex-col 2xl:gap-7 2xl:p-10 lg:gap-5 lg:p-7 p-6 gap-4 rounded-xl shadow-inset-1-gray-custom bg-gray-8"
+>
+  <img [src]="details.imgUrl" class="w-full rounded-lg" />
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-1.5 h-24">
+      <span
+        class="font-semibold 2xl:text-2xl lg:text-xl text-lg leading-normal text-white"
+        >{{ details.name }}</span
+      >
+      <!-- <p class="line-clamp-3">
+        {{ details.description }}
+
+        <a href="#" class="text-white font-medium hover:underline pl-1"
+          >... Read More</a
+        >
+      </p> -->
+      <p class="line-clamp-1 relative">
+        {{ details.description }}
+        <a
+          href="#"
+          class="text-white absolute bottom-0 right-0 bg-gray-8 font-medium hover:underlin ml-1"
+          style="box-shadow: -10px 0px 10px 5px #141414"
+          >... Read More</a
+        >
+      </p>
+    </div>
+    <div class="flex flex-wrap 2xl:gap-2.5 gap-1.5">
+      <div class="details-highlight">
+        <img src="icons/bed.svg" class="icon" />
+        <span>{{ details.bedrooms }}-Bedroom</span>
+      </div>
+      <div class="details-highlight">
+        <img src="icons/bath.svg" />
+        <span>{{ details.bathroom }}-Bathroom</span>
+      </div>
+      <div class="details-highlight">
+        <img src="icons/building-office.svg" />
+        <span>{{ details.type }}</span>
+      </div>
+    </div>
+    <div class="flex flex-row 2xl:gap-12 lg:gap-10 gap-5">
+      <div class="w-2/6 flex flex-col 2xl:gap-0.5">
+        <p>Price</p>
+        <span
+          class="font-semibold 2xl:text-2xl lg:text-xl text-lg leading-normal text-white"
+          >${{ details.price }}</span
+        >
+      </div>
+      <button
+        class="w-4/6 2xl:px-6 2xl:py-4 2xl:text-lg px-3 py-3.5 text-sm rounded-lg bg-purple-60 text-white font-medium leading-normal"
+      >
+        View Property Details
+      </button>
+    </div>
+  </div>
+</div>

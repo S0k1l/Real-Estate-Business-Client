@@ -34,10 +34,11 @@ module.exports = {
       },
       boxShadow: {
         "inset-1-gray-custom": "inset 0px 0px 0px 1px #262626",
+        "inset-1-gray-top-custom": "inset 0 1px 0 #262626",
         "10-gray-custom": "0px 0px 0px 10px #191919",
         "4-gray-custom": "0px 0px 0px 4px #191919",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

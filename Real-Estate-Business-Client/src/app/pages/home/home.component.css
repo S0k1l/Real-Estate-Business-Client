@@ -1,5 +1,5 @@
-p {
-  @apply text-gray-60 2xl:text-lg lg:text-base text-sm font-medium leading-normal;
+.heading {
+  @apply font-semibold 2xl:text-5xl lg:text-4xl text-2xl text-white leading-normal;
 }
 
 .hero-item-sm,
@@ -26,7 +26,7 @@ p {
   @apply 2xl:text-xl lg:text-base text-sm text-white leading-normal font-semibold;
 }
 
-button {
+.hero-button {
   @apply 2xl:px-6 2xl:py-4 2xl:text-lg px-5 py-3 text-sm font-medium rounded-xl;
 }
 
@@ -36,4 +36,8 @@ button {
 
 .hero-bnt-icon {
   @apply 2xl:h-20 2xl:w-20 lg:h-14 lg:w-14 w-12 h-12;
+}
+
+.btn-gray {
+  @apply 2xl:px-6 2xl:py-4 2xl:text-lg lg:py-4 px-3 py-3.5 text-sm text-white font-medium  leading-normal shadow-inset-1-gray-custom bg-gray-10 hover:bg-gray-15 rounded-lg;
 }
