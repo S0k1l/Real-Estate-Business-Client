@@ -1,0 +1,13 @@
+.stats {
+  @apply flex flex-col rounded-xl bg-gray-10 shadow-inset-1-gray-custom justify-start items-start gap-0.5;
+  @apply md:col-span-2 2xl:px-6 2xl:py-4 lg:px-5 lg:py-3 md:p-3 p-4;
+}
+
+.stats span {
+  @apply font-bold text-white leading-normal text-center md:text-start;
+  @apply 2xl:text-4xl lg:text-3xl text-2xl w-full;
+}
+
+.stats p {
+  @apply text-center md:text-start w-full;
+}

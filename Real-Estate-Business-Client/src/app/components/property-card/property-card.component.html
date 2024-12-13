@@ -1,33 +1,28 @@
 <div
-  class="flex flex-col 2xl:gap-7 2xl:p-10 lg:gap-5 lg:p-7 p-6 gap-4 rounded-xl shadow-inset-1-gray-custom bg-gray-8"
+  class="flex flex-col rounded-xl shadow-inset-1-gray-custom bg-gray-8 2xl:gap-7 2xl:p-10 lg:gap-5 lg:p-7 p-6 gap-4"
 >
   <img [src]="details.imgUrl" class="w-full rounded-lg" />
   <div class="flex flex-col gap-7">
     <div class="flex flex-col gap-1.5 h-24">
       <span
-        class="font-semibold 2xl:text-2xl lg:text-xl text-lg leading-normal text-white"
+        class="font-semibold leading-normal text-white 2xl:text-2xl lg:text-xl text-lg"
         >{{ details.name }}</span
       >
       <p class="line-clamp-1 relative">
         {{ details.description }}
-        <a
-          href="#"
-          class="text-white absolute bottom-0 right-0 bg-gray-8 font-medium hover:underlin ml-1"
-          style="box-shadow: -10px 0px 10px 5px #141414"
-          >... Read More</a
-        >
+        <a href="#" class="read-more">... Read More</a>
       </p>
     </div>
     <div class="flex flex-wrap 2xl:gap-2.5 gap-1.5">
-      <div class="details-highlight">
-        <img src="icons/bed.svg" class="icon" />
+      <div class="detail-highlight">
+        <img src="icons/bed.svg" />
         <span>{{ details.bedrooms }}-Bedroom</span>
       </div>
-      <div class="details-highlight">
+      <div class="detail-highlight">
         <img src="icons/bath.svg" />
         <span>{{ details.bathroom }}-Bathroom</span>
       </div>
-      <div class="details-highlight">
+      <div class="detail-highlight">
         <img src="icons/building-office.svg" />
         <span>{{ details.type }}</span>
       </div>

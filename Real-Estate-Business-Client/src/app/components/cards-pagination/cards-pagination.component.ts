@@ -1,19 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
-import { PropertiesCardComponent } from '../properties-card/properties-card.component';
+import {
+  AfterContentChecked,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { PropertyCardComponent } from '../property-card/property-card.component';
 import { CARD_TYPES } from '../../data/constants';
-import { ClientsSayCardComponent } from '../clients-say-card/clients-say-card.component';
+import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 
 @Component({
   selector: 'app-cards-pagination',
   standalone: true,
-  imports: [CommonModule, PropertiesCardComponent, ClientsSayCardComponent],
+  imports: [CommonModule, PropertyCardComponent, TestimonialCardComponent],
   templateUrl: './cards-pagination.component.html',
   styleUrl: './cards-pagination.component.css',
 })
-export class CardsPaginationComponent {
-  @Input() btnText: string = 'no text';
-  @Input() btnLink: string = '/noLink';
+export class CardsPaginationComponent implements OnInit {
   @Input() type: string = '';
 
   cardTypes = CARD_TYPES;
@@ -21,11 +25,13 @@ export class CardsPaginationComponent {
 
   visibleItems = this.data;
   screenWidth = window.innerWidth;
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.screenWidth = (event.target as Window).innerWidth;
     this.updateVisibleItems();
   }
+
   ngOnInit() {
     switch (this.type) {
       case this.cardTypes.propertiesCard:
@@ -102,6 +108,7 @@ export class CardsPaginationComponent {
 
     this.updateVisibleItems();
   }
+
   updateVisibleItems() {
     if (this.screenWidth < 768) {
       this.visibleItems = this.data.slice(0, 1);

@@ -2,13 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-clients-say-card',
+  selector: 'app-testimonial-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './clients-say-card.component.html',
-  styleUrl: './clients-say-card.component.css',
+  templateUrl: './testimonial-card.component.html',
+  styleUrl: './testimonial-card.component.css',
 })
-export class ClientsSayCardComponent {
+export class TestimonialCardComponent {
   @Input() details!: any;
   stars = Array(5).fill(0);
 }

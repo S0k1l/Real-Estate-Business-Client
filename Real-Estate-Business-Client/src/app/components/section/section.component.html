@@ -1,0 +1,18 @@
+<div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
+  <div class="flex flex-row">
+    <div class="flex flex-col md:w-3/4 gap-3.5 relative">
+      <app-stars-divider></app-stars-divider>
+      <span
+        class="font-semibold text-white leading-normal 2xl:text-5xl lg:text-4xl text-2xl"
+        >{{ header }}</span
+      >
+      <p>
+        {{ text }}
+      </p>
+    </div>
+    <div class="md:w-1/4 md:flex md:justify-end md:items-end hidden">
+      <ng-content select="button"></ng-content>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

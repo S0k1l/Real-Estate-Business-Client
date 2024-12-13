@@ -1,6 +1,7 @@
 <div class="flex flex-col">
+  <!-- Hero Section -->
   <div
-    class="flex md:flex-row-reverse md:p-0 px-4 pt-10 flex-col justify-start items-center 2xl:gap-20 xl:gap-14 lg:gap-10 md:gap-4 gap-10"
+    class="flex flex-col md:flex-row-reverse md:p-0 px-4 pt-10 justify-start items-center 2xl:gap-20 xl:gap-14 lg:gap-10 md:gap-4 gap-10"
   >
     <img src="Image.webp" class="md:w-1/2 h-full -z-20" />
     <div
@@ -11,116 +12,76 @@
       >
         <img
           src="icons/link-btn.svg"
-          class="absolute 2xl:w-44 2xl:h-44 lg:h-32 ld:w-32 w-28 h-28 2xl:-right-[168px] xl:-right-28 lg:-right-24 md:-right-[72px] md:top-0 -top-28"
+          class="absolute 2xl:w-44 2xl:h-44 lg:h-32 lg:w-32 w-28 h-28 2xl:-right-[168px] xl:-right-28 lg:-right-24 md:-right-[72px] md:top-0 -top-28"
         />
-        <span
-          class="2xl:text-6xl lg:text-5xl text-2xl md:p-0 pt-2.5 text-white font-bold leading-tight"
-          >Discover Your Dream Property with Estatein</span
-        >
+        <span class="heading">Discover Your Dream Property with Estatein</span>
         <p>
           Your journey to finding the perfect property begins here. Explore our
           listings to find the home that matches your dreams.
         </p>
       </div>
-      <div class="flex md:flex-row flex-col 2xl:gap-5 gap-4 text-white w-full">
-        <button class="shadow-inset-1-gray-custom hero-button hover:bg-gray-15">
+      <div class="flex flex-col md:flex-row 2xl:gap-5 gap-4 text-white w-full">
+        <button class="hero-button shadow-inset-1-gray-custom hover:bg-gray-15">
           Learn More
         </button>
-        <button class="bg-purple-60 hero-button hover:bg-purple-65">
+        <button class="hero-button bg-purple-60 hover:bg-purple-65">
           Browse Properties
         </button>
       </div>
-      <div class="grid grid-cols-6 2xl:gap-5 lg:gap-4 gap-3 w-full">
-        <div class="hero-item-sm col-span-3">
-          <span>200+</span>
-          <p>Happy Customers</p>
-        </div>
-        <div class="hero-item-sm col-span-3">
-          <span>10k+</span>
-          <p>Properties For Clients</p>
-        </div>
-        <div class="hero-item-sm col-span-6">
-          <span>16+</span>
-          <p>Years of Experience</p>
-        </div>
-      </div>
+      <app-stats-section class="w-full"></app-stats-section>
     </div>
   </div>
-  <div
-    class="grid grid-cols-4 2xl:gap-5 gap-2.5 md:p-5 p-2.5 md:m-0 mt-10 mx-4 md:rounded-none rounded-xl bg-gray-8 border-solid border border-gray-15 md:shadow-10-gray-custom shadow-4-gray-custom"
-  >
-    <button class="hero-item-lg">
-      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
-      <img src="icons/building-storefront.svg" class="hero-bnt-icon" />
-      <span>Find Your Dream Home</span>
-    </button>
-    <button class="hero-item-lg">
-      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
-      <img src="icons/banknotes.svg" class="hero-bnt-icon" />
-      <span>Unlock Property Value</span>
-    </button>
-    <button class="hero-item-lg">
-      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
-      <img src="icons/building-office-2.svg" class="hero-bnt-icon" />
-      <span>Effortless Property Management</span>
-    </button>
-    <button class="hero-item-lg">
-      <img src="icons/arrow-up-right.svg" class="hero-arrow" />
-      <img src="icons/sun.svg" class="hero-bnt-icon" />
-      <span>Smart Investments, Informed Decisions</span>
-    </button>
+
+  <!-- Services Section -->
+  <div class="service-section">
+    <app-service-item-btn
+      iconUrl="icons/building-storefront.svg"
+      text="Find Your Dream Home"
+    ></app-service-item-btn>
+    <app-service-item-btn
+      iconUrl="icons/banknotes.svg"
+      text="Unlock Property Value"
+    ></app-service-item-btn>
+    <app-service-item-btn
+      iconUrl="icons/building-office-2.svg"
+      text="Effortless Property Management"
+    ></app-service-item-btn>
+    <app-service-item-btn
+      iconUrl="icons/sun.svg"
+      text="Smart Investments, Informed Decisions"
+    ></app-service-item-btn>
   </div>
 </div>
+
+<!-- Featured Properties Section -->
 <div
   class="w-full flex flex-col 2xl:px-40 2xl:pt-36 2xl:gap-36 lg:pt-28 lg:px-20 lg:gap-14 md:px-8 pt-20 px-4 gap-20"
 >
-  <div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
-    <div class="flex flex-row">
-      <div class="flex flex-col md:w-3/4 gap-3.5 relative">
-        <img
-          src="icons/stars-divider.svg"
-          class="2xl:w-16 lg:w-14 w-11 absolute -left-4 -top-8"
-        />
-        <span class="heading">Featured Properties</span>
-        <p>
-          Explore our handpicked selection of featured properties. Each listing
-          offers a glimpse into exceptional homes and investments available
-          through Estatein. Click "View Details" for more information.
-        </p>
-      </div>
-      <div class="md:w-1/4 md:flex md:justify-end md:items-end hidden">
-        <button class="btn-gray">View All Properties</button>
-      </div>
-    </div>
+  <!-- Featured Properties Section -->
+  <app-section
+    header="Featured Properties"
+    text='Explore our handpicked selection of featured properties. Each listing
+  offers a glimpse into exceptional homes and investments available
+  through Estatein. Click "View Details" for more information.'
+  >
+    <button class="btn-gray">View All Testimonials</button>
     <app-cards-pagination
       btnText="View All Properties"
       [type]="cardTypes.propertiesCard"
     >
       <button class="btn-gray">View All Properties</button>
     </app-cards-pagination>
-  </div>
-  <div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
-    <div class="flex flex-row">
-      <div class="flex flex-col md:w-3/4 gap-3.5 relative">
-        <img
-          src="icons/stars-divider.svg"
-          class="2xl:w-16 lg:w-14 w-11 absolute -left-4 -top-8"
-        />
-        <span class="heading">What Our Clients Say</span>
-        <p>
-          Read the success stories and heartfelt testimonials from our valued
-          clients. Discover why they chose Estatein for their real estate needs.
-        </p>
-      </div>
-      <div class="md:w-1/4 md:flex md:justify-end md:items-end hidden">
-        <button class="btn-gray">View All Testimonials</button>
-      </div>
-    </div>
-    <app-cards-pagination
-      btnText="View All Testimonials"
-      [type]="cardTypes.clientsSay"
-    >
+  </app-section>
+
+  <!-- Testimonials Section -->
+  <app-section
+    header="What Our Clients Say"
+    text="Read the success stories and heartfelt testimonials from our valued
+    clients. Discover why they chose Estatein for their real estate needs."
+  >
+    <button class="btn-gray">View All Testimonials</button>
+    <app-cards-pagination [type]="cardTypes.clientsSay">
       <button class="btn-gray">View All Testimonials</button>
     </app-cards-pagination>
-  </div>
+  </app-section>
 </div>

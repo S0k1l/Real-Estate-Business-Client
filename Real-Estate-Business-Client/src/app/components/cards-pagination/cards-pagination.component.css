@@ -1,0 +1,4 @@
+.arrow-btn {
+  @apply flex justify-center items-center rounded-full shadow-inset-1-gray-custom;
+  @apply 2xl:p-3.5 2xl:w-14 p-2.5 w-11;
+}
