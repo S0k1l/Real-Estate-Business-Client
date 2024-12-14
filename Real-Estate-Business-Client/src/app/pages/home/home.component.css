@@ -2,9 +2,3 @@
   @apply font-medium rounded-xl;
   @apply 2xl:px-6 2xl:py-4 2xl:text-lg px-5 py-3 text-sm;
 }
-
-.btn-gray {
-  @apply font-medium text-white leading-normal rounded-lg shadow-inset-1-gray-custom;
-  @apply 2xl:px-6 2xl:py-4 2xl:text-lg lg:py-4 px-3 py-3.5 text-sm;
-  @apply bg-gray-10 hover:bg-gray-15;
-}

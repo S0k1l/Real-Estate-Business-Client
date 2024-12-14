@@ -7,11 +7,16 @@
       *ngFor="let item of visibleItems"
       [details]="item"
     ></app-property-card>
-    } @case (cardTypes.clientsSay) {
+    } @case (cardTypes.testimonialCard) {
     <app-testimonial-card
       *ngFor="let item of visibleItems"
       [details]="item"
     ></app-testimonial-card>
+    } @case (cardTypes.faqCard) {
+    <app-faq-card
+      *ngFor="let item of visibleItems"
+      [details]="item"
+    ></app-faq-card>
     } @default { } }
   </div>
   <div class="w-full pt-5 shadow-inset-1-gray-top-custom">

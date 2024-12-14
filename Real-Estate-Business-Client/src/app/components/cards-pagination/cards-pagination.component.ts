@@ -9,11 +9,17 @@ import {
 import { PropertyCardComponent } from '../property-card/property-card.component';
 import { CARD_TYPES } from '../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
+import { FaqCardComponent } from '../faq-card/faq-card.component';
 
 @Component({
   selector: 'app-cards-pagination',
   standalone: true,
-  imports: [CommonModule, PropertyCardComponent, TestimonialCardComponent],
+  imports: [
+    CommonModule,
+    PropertyCardComponent,
+    TestimonialCardComponent,
+    FaqCardComponent,
+  ],
   templateUrl: './cards-pagination.component.html',
   styleUrl: './cards-pagination.component.css',
 })
@@ -70,7 +76,7 @@ export class CardsPaginationComponent implements OnInit {
           },
         ];
         break;
-      case this.cardTypes.clientsSay:
+      case this.cardTypes.testimonialCard:
         this.data = [
           {
             rating: 5,
@@ -102,6 +108,23 @@ export class CardsPaginationComponent implements OnInit {
         ];
         break;
 
+      case this.cardTypes.faqCard:
+        this.data = [
+          {
+            heading: 'How do I search for properties on Estatein?',
+            text: 'Learn how to use our user-friendly search tools to find properties that match your criteria.',
+          },
+          {
+            heading:
+              'What documents do I need to sell my property through Estatein?',
+            text: 'Find out about the necessary documentation for listing your property with us.',
+          },
+          {
+            heading: 'How can I contact an Estatein agent?',
+            text: 'Discover the different ways you can get in touch with our experienced agents.',
+          },
+        ];
+        break;
       default:
         break;
     }

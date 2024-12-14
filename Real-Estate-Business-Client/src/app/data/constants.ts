@@ -1,4 +1,5 @@
 export const CARD_TYPES = {
   propertiesCard: 'propertiesCard',
-  clientsSay: 'clientsSay',
+  testimonialCard: 'testimonialCard',
+  faqCard: 'faqCard',
 };
