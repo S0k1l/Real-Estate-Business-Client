@@ -1,0 +1,6 @@
+.cta {
+  background-image: url("/CTA.webp");
+  background-size: 100% 100%;
+  @apply flex w-full shadow-inset-1-gray-custom items-center bg-no-repeat;
+  @apply 2xl:px-40 2xl:py-24  lg:px-20 lg:py-14 md:flex-row flex-col px-4 py-12 gap-7;
+}

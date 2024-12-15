@@ -1,4 +1,0 @@
-.hero-button {
-  @apply font-medium rounded-xl;
-  @apply 2xl:px-6 2xl:py-4 2xl:text-lg px-5 py-3 text-sm;
-}
