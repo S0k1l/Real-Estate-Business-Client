@@ -1,0 +1,143 @@
+<footer>
+  <div
+    class="flex lg:flex-row flex-col 2xl:px-40 2xl:py-24 lg:p-20 xl:gap-20 lg:gap-0 px-4 py-12 gap-12"
+  >
+    <div class="flex flex-col 2xl:gap-7 lg:gap-6 lg:w-2/6 gap-5 w-full">
+      <img src="icons/logo.svg" class="logo-icon" />
+      <div class="relative flex items-center lg:w-3/4 w-full">
+        <input type="email" placeholder="Enter Your Email" class="input" />
+        <button
+          class="absolute flex rounded-full h-fit hover:bg-gray-20 2xl:right-3 2xl:p-3 right-3 p-2"
+        >
+          <img src="icons/paper-airplane.svg" class="2xl:h-7 h-6" />
+        </button>
+      </div>
+    </div>
+    <div class="lg:flex flex-row justify-between w-4/6 hidden">
+      <div class="column">
+        <span>Home</span>
+        <nav>
+          <a [routerLink]="['/']" fragment="Hero">Hero Section</a>
+          <a [routerLink]="['/']" fragment="Properties">Properties</a>
+          <a [routerLink]="['/']" fragment="Testimonials">Testimonials</a>
+          <a [routerLink]="['/']" fragment="FAQ">FAQ</a>
+        </nav>
+      </div>
+      <div class="column">
+        <span>About Us</span>
+        <nav>
+          <a [routerLink]="['/']" fragment="Story">Our Story</a>
+          <a [routerLink]="['/']" fragment="Works">Our Works</a>
+          <a [routerLink]="['/']" fragment="How-It-Works">How It Works</a>
+          <a [routerLink]="['/']" fragment="Team">Our Team</a>
+          <a [routerLink]="['/']" fragment="Clients">Our Clients</a>
+        </nav>
+      </div>
+      <div class="column">
+        <span>Properties</span>
+        <nav>
+          <a [routerLink]="['/']" fragment="Portfolio">Portfolio</a>
+          <a [routerLink]="['/']" fragment="Categories">Categories</a>
+        </nav>
+      </div>
+      <div class="column">
+        <span>Services</span>
+        <nav>
+          <a [routerLink]="['/']" fragment="Mastery">Valuation Mastery</a>
+          <a [routerLink]="['/']" fragment="Marketing">Strategic Marketing</a>
+          <a [routerLink]="['/']" fragment="Wizardry">Negotiation Wizardry</a>
+          <a [routerLink]="['/']" fragment="Success">Closing Success</a>
+          <a [routerLink]="['/']" fragment="Management">Property Management</a>
+        </nav>
+      </div>
+      <div class="column">
+        <span>Contact Us</span>
+        <nav>
+          <a [routerLink]="['/']" fragment="Mastery">Contact Form</a>
+          <a [routerLink]="['/']" fragment="Marketing">Our Offices</a>
+        </nav>
+      </div>
+    </div>
+    <div class="flex flex-row gap-5 w-full lg:hidden">
+      <div class="big-column">
+        <div class="column">
+          <span>Home</span>
+          <nav>
+            <a [routerLink]="['/']" fragment="Hero">Hero Section</a>
+            <a [routerLink]="['/']" fragment="Properties">Properties</a>
+            <a [routerLink]="['/']" fragment="Testimonials">Testimonials</a>
+            <a [routerLink]="['/']" fragment="FAQ">FAQ</a>
+          </nav>
+        </div>
+        <div class="column">
+          <span>Properties</span>
+          <nav>
+            <a [routerLink]="['/']" fragment="Portfolio">Portfolio</a>
+            <a [routerLink]="['/']" fragment="Categories">Categories</a>
+          </nav>
+        </div>
+        <div class="column">
+          <span>Contact Us</span>
+          <nav>
+            <a [routerLink]="['/']" fragment="Mastery">Contact Form</a>
+            <a [routerLink]="['/']" fragment="Marketing">Our Offices</a>
+          </nav>
+        </div>
+      </div>
+      <div class="big-column !w-[2px]">
+        <div class="bg-gray-15 h-full"></div>
+        <div class="bg-gray-15 h-full"></div>
+      </div>
+      <div class="big-column">
+        <div class="column">
+          <span>About Us</span>
+          <nav>
+            <a [routerLink]="['/']" fragment="Story">Our Story</a>
+            <a [routerLink]="['/']" fragment="Works">Our Works</a>
+            <a [routerLink]="['/']" fragment="How-It-Works">How It Works</a>
+            <a [routerLink]="['/']" fragment="Team">Our Team</a>
+            <a [routerLink]="['/']" fragment="Clients">Our Clients</a>
+          </nav>
+        </div>
+        <div class="column">
+          <span>Services</span>
+          <nav>
+            <a [routerLink]="['/']" fragment="Mastery">Valuation Mastery</a>
+            <a [routerLink]="['/']" fragment="Marketing">Strategic Marketing</a>
+            <a [routerLink]="['/']" fragment="Wizardry">Negotiation Wizardry</a>
+            <a [routerLink]="['/']" fragment="Success">Closing Success</a>
+            <a [routerLink]="['/']" fragment="Management"
+              >Property Management</a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="flex lg:flex-row flex-col-reverse bg-gray-10 w-full justify-between 2xl:px-40 2xl:py-4 lg:px-20 lg:py-3 px-4 py-5 gap-5"
+  >
+    <div
+      class="flex lg:flex-row flex-col text-white font-medium items-center 2xl:gap-9 2xl:text-lg lg:py-2.5 lg:gap-5 lg:text-sm gap-2.5"
+    >
+      <span>&#64;2023 Estatein. All Rights Reserved.</span>
+      <span>Terms & Conditions</span>
+    </div>
+    <div
+      class="flex flex-row items-center lg:justify-end justify-center 2xl:py-2.5 2xl:gap-2.5 gap-2 p-0"
+    >
+      <button class="social-media">
+        <img src="icons/facebook.svg" />
+      </button>
+      <button class="social-media">
+        <img src="icons/linked-in.svg" />
+      </button>
+      <button class="social-media">
+        <img src="icons/twitter.svg" />
+      </button>
+      <button class="social-media">
+        <img src="icons/youtube.svg" />
+      </button>
+    </div>
+  </div>
+</footer>

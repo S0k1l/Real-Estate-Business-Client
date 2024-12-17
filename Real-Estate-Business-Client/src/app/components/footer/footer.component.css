@@ -1,0 +1,38 @@
+.input {
+  background: url(/icons/mail-outline.svg) no-repeat scroll;
+  @apply w-full shadow-inset-1-gray-custom font-medium bg-gray-8 text-gray-60 rounded-xl;
+  @apply 2xl:pl-14 2xl:pr-16 2xl:py-4 2xl:bg-[24px_50%] 2xl:bg-[length:24px] 2xl:text-lg pl-12 pr-12 text-sm bg-[20px_50%] bg-[length:20px] py-3.5;
+  @apply focus:outline-none 2xl:focus:ring-2 lg:focus:ring-1 focus:ring-gray-20;
+}
+
+.big-column {
+  @apply flex flex-col gap-5 w-full;
+}
+
+.column {
+  @apply flex flex-col gap-7;
+  @apply lg:shadow-none lg:pb-0 shadow-inset-1-gray-bottom-custom pb-5;
+}
+
+.column span {
+  @apply font-medium text-gray-60;
+  @apply 2xl:text-xl lg:text-lg text-base;
+}
+
+.column nav {
+  @apply flex flex-col gap-5 font-medium text-white;
+}
+
+.column a {
+  @apply hover:underline;
+  @apply 2xl:text-lg lg:text-base text-sm;
+}
+
+.social-media {
+  @apply rounded-full bg-gray-8 hover:bg-gray-15;
+  @apply 2xl:p-3.5 lg:p-2.5 p-5;
+}
+
+.social-media img {
+  @apply 2xl:h-6 h-5;
+}

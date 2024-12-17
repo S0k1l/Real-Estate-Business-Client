@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Urbanist", sans-serif;
   background-color: black;
@@ -32,4 +36,8 @@ p {
 
 .heading {
   @apply font-semibold text-white leading-normal 2xl:text-5xl lg:text-4xl text-2xl;
+}
+
+.logo-icon {
+  @apply 2xl:w-40 2xl:h-12 md:w-28 md:h-8 w-24 h-7;
 }
