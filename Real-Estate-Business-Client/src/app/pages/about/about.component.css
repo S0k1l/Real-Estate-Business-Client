@@ -1,0 +1,8 @@
+.values-cards {
+  @apply flex md:flex-row flex-col;
+  @apply 2xl:gap-7 md:gap-6 gap-5;
+}
+
+.values-cards app-card-sm {
+  @apply w-full;
+}

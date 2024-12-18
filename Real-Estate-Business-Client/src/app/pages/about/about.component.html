@@ -1,5 +1,5 @@
 <div
-  class="2xl:pt-24 2xl:px-40 2xl:pb-40 lg:px-16 lg:pt-16 lg:pb-28 md:px-8 px-4 pt-12 pb-20"
+  class="flex flex-col 2xl:pt-24 2xl:px-40 2xl:pb-40 2xl:gap-36 lg:px-16 lg:pt-16 lg:pb-28 lg:gap-28 md:px-8 px-4 pt-12 pb-20 gap-20"
 >
   <!-- Our Journey -->
   <div
@@ -18,5 +18,49 @@
       src="about-us.webp"
       class="md:w-1/2 w-full rounded-xl shadow-1-gray-custom"
     />
+  </div>
+
+  <!-- Our Values -->
+  <div
+    class="flex lg:flex-row flex-col items-center 2xl:gap-20 lg:gap-14 gap-10"
+  >
+    <app-section
+      header="Our Values"
+      [isRightSection]="false"
+      text="Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary."
+      class="lg:w-1/3 w-full"
+    >
+    </app-section>
+    <div
+      class="flex flex-col rounded-xl shadow-10-gray-custom bg-gray-8 justify-center 2xl:gap-7 2xl:p-14 lg:w-2/3 md:gap-6 md:p-12 w-full p-6 gap-5"
+    >
+      <div class="values-cards">
+        <app-card-sm
+          imgUrl="icons/star.svg"
+          header="Trust"
+          text="Trust is the cornerstone of every successful real estate transaction."
+        ></app-card-sm>
+        <app-divider [vertical]="isSmallScreen"></app-divider>
+        <app-card-sm
+          imgUrl="icons/academic-cap.svg"
+          header="Excellence"
+          text="We set the bar high for ourselves. From the properties we list to the services we provide."
+        ></app-card-sm>
+      </div>
+      <app-divider></app-divider>
+      <div class="values-cards">
+        <app-card-sm
+          imgUrl="icons/group.svg"
+          header="Client-Centric"
+          text="Your dreams and needs are at the center of our universe. We listen, understand."
+        ></app-card-sm>
+        <app-divider [vertical]="isSmallScreen"></app-divider>
+        <app-card-sm
+          imgUrl="icons/star.svg"
+          header="Our Commitment"
+          text="We are dedicated to providing you with the highest level of service, professionalism, and support."
+        ></app-card-sm>
+      </div>
+    </div>
   </div>
 </div>
