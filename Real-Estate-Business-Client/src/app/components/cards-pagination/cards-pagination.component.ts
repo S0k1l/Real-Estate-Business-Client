@@ -1,15 +1,10 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterContentChecked,
-  Component,
-  HostListener,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PropertyCardComponent } from '../property-card/property-card.component';
 import { CARD_TYPES } from '../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
+import { ResizeService } from '../../services/resize.service';
 
 @Component({
   selector: 'app-cards-pagination',
@@ -24,21 +19,21 @@ import { FaqCardComponent } from '../faq-card/faq-card.component';
   styleUrl: './cards-pagination.component.css',
 })
 export class CardsPaginationComponent implements OnInit {
+  constructor(private resizeService: ResizeService) {}
+
   @Input() type: string = '';
 
   cardTypes = CARD_TYPES;
   data: any = [];
-
   visibleItems = this.data;
-  screenWidth = window.innerWidth;
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.screenWidth = (event.target as Window).innerWidth;
-    this.updateVisibleItems();
-  }
+  screenWidth!: number;
 
   ngOnInit() {
+    this.resizeService.screenWidth$.subscribe((width) => {
+      this.screenWidth = width;
+      this.updateVisibleItems();
+    });
+
     switch (this.type) {
       case this.cardTypes.propertiesCard:
         this.data = [
