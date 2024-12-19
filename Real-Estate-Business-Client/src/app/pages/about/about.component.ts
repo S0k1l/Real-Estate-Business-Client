@@ -5,6 +5,7 @@ import { CardSmComponent } from '../../components/card-sm/card-sm.component';
 import { DividerComponent } from '../../components/divider/divider.component';
 import { CommonModule } from '@angular/common';
 import { ResizeService } from '../../services/resize.service';
+import { HowItWorksCardComponent } from '../../components/how-it-works-card/how-it-works-card.component';
 
 @Component({
   selector: 'app-about',
@@ -15,6 +16,7 @@ import { ResizeService } from '../../services/resize.service';
     CardSmComponent,
     DividerComponent,
     CommonModule,
+    HowItWorksCardComponent,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
