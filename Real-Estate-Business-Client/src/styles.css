@@ -16,10 +16,6 @@ p {
   @apply 2xl:text-lg lg:text-base text-sm;
 }
 
-.service-section {
-  @apply grid md:grid-cols-4 grid-cols-2 2xl:gap-5 gap-2.5 md:p-5 p-2.5 md:m-0 mt-10 mx-4 md:rounded-none rounded-xl bg-gray-8 border-solid border border-gray-15 md:shadow-10-gray-custom shadow-4-gray-custom;
-}
-
 .btn-gray {
   @apply shadow-inset-1-gray-custom btn;
   @apply bg-gray-10 hover:bg-gray-15;
