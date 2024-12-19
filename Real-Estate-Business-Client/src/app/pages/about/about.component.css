@@ -6,3 +6,13 @@
 .values-cards app-card-sm {
   @apply w-full;
 }
+
+.achievement-card {
+  @apply flex flex-col bg-gray-8 border border-gray-15;
+  @apply 2xl:p-12 2xl:gap-7 2xl:shadow-8-gray-custom 2xl:rounded-xl lg:p-10 lg:gap-6 lg:shadow-6-gray-custom p-7 gap-4 shadow-4-gray-custom rounded-lg;
+}
+
+.achievement-card span {
+  @apply font-semibold leading-normal text-white;
+  @apply 2xl:text-3xl lg:text-2xl text-xl;
+}
