@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { PropertyCardComponent } from '../property-card/property-card.component';
-import { CARD_TYPES } from '../../data/constants';
+import { CARD_TYPES } from '../../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
-import { ResizeService } from '../../services/resize.service';
+import { ResizeService } from '../../../services/resize.service';
 
 @Component({
   selector: 'app-cards-pagination',
