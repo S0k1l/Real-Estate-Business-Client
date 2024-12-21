@@ -12,5 +12,5 @@ import { CommonModule } from '@angular/common';
 export class SectionComponent {
   @Input() header: string = 'no text';
   @Input() text: string = 'no text';
-  @Input() isRightSection: boolean = true;
+  @Input() isButton: boolean = false;
 }

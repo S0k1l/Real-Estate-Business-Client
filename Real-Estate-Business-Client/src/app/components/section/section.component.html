@@ -1,8 +1,9 @@
 <div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
   <div class="flex flex-row">
     <div
-      class="flex flex-col gap-3.5 relative"
-      [ngClass]="{ 'md:w-3/4': isRightSection }"
+      class="flex flex-col gap-3.5 relative {{
+        isButton ? 'md:w-3/4' : 'md:w-5/6'
+      }}"
     >
       <app-stars-divider></app-stars-divider>
       <span class="heading">{{ header }}</span>
@@ -11,7 +12,7 @@
       </p>
     </div>
     <div
-      *ngIf="isRightSection"
+      *ngIf="isButton"
       class="md:w-1/4 md:flex md:justify-end md:items-end hidden"
     >
       <ng-content select="button"></ng-content>
