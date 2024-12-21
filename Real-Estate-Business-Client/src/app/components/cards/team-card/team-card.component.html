@@ -1,0 +1,27 @@
+<div
+  class="flex flex-col md:gap-12 gap-10 2xl:p-7 md:p-6 p-5 rounded-xl shadow-inset-1-gray-custom"
+>
+  <img [src]="imgUrl" class="2xl:rounded-xl rounded-lg" />
+  <div class="relative flex flex-col md:gap-6 gap-4">
+    <button
+      class="absolute rounded-full bg-purple-60 hover:bg-purple-65 2xl:w-[76px] 2xl:h-[52px] 2xl:px-[26px] 2xl:py-3.5 2xl:bottom-[182px] md:-top-[70px] -top-[64px] px-5 py-2.5 inset-x-0 w-[60px] h-10 m-auto"
+    >
+      <img src="icons/twitter.svg" />
+    </button>
+    <div class="flex flex-col text-center">
+      <span
+        class="text-white leading-normal font-semibold 2xl:text-2xl md:text-xl text-lg"
+        >{{ name }}</span
+      >
+      <p>{{ role }}</p>
+    </div>
+    <div class="relative">
+      <input class="input" placeholder="Say Hello 👋" />
+      <button
+        class="absolute bg-purple-60 hover:bg-purple-65 rounded-full 2xl:w-11 2xl:h-11 2xl:p-2.5 2xl:right-3.5 md:w-9 md:h-9 md:p-2 md:right-2.5 w-12 h-12 p-3.5 right-2 inset-y-0 m-auto"
+      >
+        <img src="icons/paper-airplane.svg" />
+      </button>
+    </div>
+  </div>
+</div>

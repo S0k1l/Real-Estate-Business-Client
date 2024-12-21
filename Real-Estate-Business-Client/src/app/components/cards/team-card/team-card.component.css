@@ -1,0 +1,7 @@
+.input {
+  @apply w-full shadow-inset-1-gray-custom rounded-full bg-gray-10 text-white placeholder-white font-medium;
+  @apply 2xl:text-lg 2xl:py-[22px] 2xl:pr-[78px] 2xl:pl-6;
+  @apply md:text-base md:py-4 md:pl-5 md:pr-14;
+  @apply text-sm py-[22px] pl-6;
+  @apply focus:outline-none 2xl:focus:ring-2 focus:ring-1 focus:ring-gray-20;
+}

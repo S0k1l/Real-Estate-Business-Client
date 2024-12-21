@@ -6,6 +6,7 @@ import { DividerComponent } from '../../components/divider/divider.component';
 import { CommonModule } from '@angular/common';
 import { ResizeService } from '../../services/resize.service';
 import { HowItWorksCardComponent } from '../../components/cards/how-it-works-card/how-it-works-card.component';
+import { TeamCardComponent } from '../../components/cards/team-card/team-card.component';
 
 @Component({
   selector: 'app-about',
@@ -17,6 +18,7 @@ import { HowItWorksCardComponent } from '../../components/cards/how-it-works-car
     DividerComponent,
     CommonModule,
     HowItWorksCardComponent,
+    TeamCardComponent,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
