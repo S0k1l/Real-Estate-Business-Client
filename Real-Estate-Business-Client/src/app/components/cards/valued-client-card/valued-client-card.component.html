@@ -1,0 +1,42 @@
+<div
+  class="h-full flex flex-col rounded-xl shadow-8-gray-custom border border-gray-15 bg-gray-8 2xl:gap-10 2xl:p-12 md:p-10 p-6 gap-7"
+>
+  <div
+    class="flex xl:flex-row xl:justify-between lg:flex-col lg:gap-5 md:flex-row md:justify-between flex-col gap-5"
+  >
+    <div class="flex flex-col 2xl:gap-1.5 md:gap-1">
+      <p>Since {{ details.since }}</p>
+      <span
+        class="text-white leading-normal font-semibold 2xl:text-3xl md:text-2xl"
+        >{{ details.heading }}</span
+      >
+    </div>
+    <button class="btn-gray h-fit">Visit Website</button>
+  </div>
+  <div class="flex flex-row 2xl:gap-7 md:gap-5 gap-4">
+    <div class="domain-category">
+      <div>
+        <img src="icons/squares-2x2.svg" />
+        <p>Domain</p>
+      </div>
+      <span>{{ details.domain }}</span>
+    </div>
+    <app-divider [vertical]="true"></app-divider>
+    <div class="domain-category">
+      <div>
+        <img src="icons/bolt.svg" />
+        <p>Domain</p>
+      </div>
+      <span>{{ details.category }}</span>
+    </div>
+  </div>
+  <div
+    class="flex flex-col rounded-xl shadow-inset-1-gray-custom 2xl:gap-3.5 2xl:p-7 md:gap-2.5 md:p-6 gap-2 p-5"
+  >
+    <p>What They Said 🤗</p>
+    <span
+      class="font-medium leading-normal text-white 2xl:text-lg md:text-base text-sm"
+      >{{ details.comment }}</span
+    >
+  </div>
+</div>

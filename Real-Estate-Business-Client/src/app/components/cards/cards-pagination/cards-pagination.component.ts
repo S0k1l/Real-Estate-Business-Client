@@ -5,6 +5,7 @@ import { CARD_TYPES } from '../../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
 import { ResizeService } from '../../../services/resize.service';
+import { ValuedClientCardComponent } from '../valued-client-card/valued-client-card.component';
 
 @Component({
   selector: 'app-cards-pagination',
@@ -14,6 +15,7 @@ import { ResizeService } from '../../../services/resize.service';
     PropertyCardComponent,
     TestimonialCardComponent,
     FaqCardComponent,
+    ValuedClientCardComponent,
   ],
   templateUrl: './cards-pagination.component.html',
   styleUrl: './cards-pagination.component.css',
@@ -120,6 +122,26 @@ export class CardsPaginationComponent implements OnInit {
           },
         ];
         break;
+      case this.cardTypes.valuedClientCard:
+        this.data = [
+          {
+            since: '2019',
+            heading: 'ABC Corporation',
+            domain: 'Commercial Real Estate',
+            category: 'Luxury Home Development',
+            comment:
+              "Estatein's expertise in finding the perfect office space for our expanding operations was invaluable. They truly understand our business needs.",
+          },
+          {
+            since: '2018',
+            heading: 'GreenTech Enterprises',
+            domain: 'Commercial Real Estate',
+            category: 'Retail Space',
+            comment:
+              "Estatein's ability to identify prime retail locations helped us expand our brand presence. They are a trusted partner in our growth.",
+          },
+        ];
+        break;
       default:
         break;
     }
@@ -128,12 +150,20 @@ export class CardsPaginationComponent implements OnInit {
   }
 
   updateVisibleItems() {
-    if (this.screenWidth < 768) {
-      this.visibleItems = this.data.slice(0, 1);
-    } else if (this.screenWidth < 1280) {
-      this.visibleItems = this.data.slice(0, 2);
+    if ((this.type = this.cardTypes.valuedClientCard)) {
+      if (this.screenWidth < 1024) {
+        this.visibleItems = this.data.slice(0, 1);
+      } else {
+        this.visibleItems = this.data.slice(0, 2);
+      }
     } else {
-      this.visibleItems = this.data;
+      if (this.screenWidth < 768) {
+        this.visibleItems = this.data.slice(0, 1);
+      } else if (this.screenWidth < 1280) {
+        this.visibleItems = this.data.slice(0, 2);
+      } else {
+        this.visibleItems = this.data.slice(0, 3);
+      }
     }
   }
 }

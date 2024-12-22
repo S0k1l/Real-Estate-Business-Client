@@ -7,6 +7,9 @@ import { CommonModule } from '@angular/common';
 import { ResizeService } from '../../services/resize.service';
 import { HowItWorksCardComponent } from '../../components/cards/how-it-works-card/how-it-works-card.component';
 import { TeamCardComponent } from '../../components/cards/team-card/team-card.component';
+import { ValuedClientCardComponent } from '../../components/cards/valued-client-card/valued-client-card.component';
+import { CardsPaginationComponent } from '../../components/cards/cards-pagination/cards-pagination.component';
+import { CARD_TYPES } from '../../data/constants';
 
 @Component({
   selector: 'app-about',
@@ -19,6 +22,8 @@ import { TeamCardComponent } from '../../components/cards/team-card/team-card.co
     CommonModule,
     HowItWorksCardComponent,
     TeamCardComponent,
+    ValuedClientCardComponent,
+    CardsPaginationComponent,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
@@ -28,6 +33,7 @@ export class AboutComponent implements OnInit {
 
   screenWidth!: number;
   isSmallScreen = true;
+  cardsType = CARD_TYPES;
 
   ngOnInit(): void {
     this.resizeService.screenWidth$.subscribe((width) => {

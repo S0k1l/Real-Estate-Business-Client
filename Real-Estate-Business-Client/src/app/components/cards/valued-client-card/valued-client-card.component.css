@@ -1,0 +1,15 @@
+.domain-category {
+  @apply w-full flex flex-col 2xl:gap-2 md:gap-1.5 gap-1;
+}
+
+.domain-category div {
+  @apply flex flex-row 2xl:gap-1.5 md:gap-1;
+}
+
+.domain-category img {
+  @apply 2xl:w-6 md:w-5 w-[18px];
+}
+
+.domain-category span {
+  @apply font-medium text-white leading-normal 2xl:text-xl md:text-base text-sm;
+}
