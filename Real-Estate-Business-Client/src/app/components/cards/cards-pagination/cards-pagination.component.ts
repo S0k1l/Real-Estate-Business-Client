@@ -150,7 +150,7 @@ export class CardsPaginationComponent implements OnInit {
   }
 
   updateVisibleItems() {
-    if ((this.type = this.cardTypes.valuedClientCard)) {
+    if (this.type == this.cardTypes.valuedClientCard) {
       if (this.screenWidth < 1024) {
         this.visibleItems = this.data.slice(0, 1);
       } else {
