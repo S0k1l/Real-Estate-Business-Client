@@ -3,3 +3,27 @@
   @apply 2xl:py-8 2xl:pl-6 2xl:pr-5 2xl:text-2xl lg:pl-5 lg:py-6 lg:pr-52 lg:text-xl lg:shadow-10-gray-custom lg:rounded-t-xl pl-4 py-5 pr-20 shadow-4-gray-custom rounded-xl text-sm;
   @apply focus:outline-none 2xl:focus:ring-2 lg:focus:ring-1 focus:ring-gray-20;
 }
+
+.select {
+  @apply w-full relative lg:!col-span-1 col-span-1;
+}
+.select div {
+  @apply absolute flex flex-row my-auto h-fit inset-y-0;
+  @apply 2xl:gap-2.5 2xl:left-5 gap-2 left-3.5;
+}
+.select div img {
+  @apply 2xl:w-6 w-5;
+}
+
+.select select {
+  background-image: url(/icons/select-arrow.svg);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  @apply focus:outline-none 2xl:focus:ring-2 lg:focus:ring-1 focus:ring-gray-20;
+  @apply w-full block bg-gray-8 font-medium leading-normal text-gray-40;
+  @apply 2xl:pl-16 2xl:pr-20 2xl:py-6 2xl:rounded-xl 2xl:text-lg lg:pl-12 lg:pr-14 lg:py-3.5 rounded-lg py-3.5 p-14;
+  @apply 2xl:bg-[length:32px_32px] 2xl:bg-[center_right_20px] lg:bg-[center_right_14px] bg-[length:28px_28px] bg-[center_right_10px];
+}

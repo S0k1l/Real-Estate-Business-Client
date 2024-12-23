@@ -10,4 +10,66 @@
       categories to suit every dreamer, your journey
     </p>
   </div>
+  <div
+    class="flex flex-col justify-center 2xl:-mt-14 2xl:gap-2.5 2xl:px-40 lg:-mt-11 lg:gap-0.5 lg:px-20 md:px-8 px-4 gap-5"
+  >
+    <div class="flex relative 2xl:px-36 lg:px-20">
+      <input type="text" placeholder="Search For A Property" class="input" />
+      <button
+        class="absolute flex btn-purple my-auto inset-y-0 h-fit 2xl:right-40 2xl:gap-2 lg:right-24 md:gap-1.5 right-2.5 !px-5 !py-3.5"
+      >
+        <img src="icons/magnifying-glass.svg" class="2xl:w-6 w-5" />
+        <span class="md:block hidden">Find Property</span>
+      </button>
+    </div>
+    <div
+      class="grid lg:grid-cols-5 md:grid-cols-2 rounded-xl bg-gray-10 gap-5 lg:p-2.5 p-5"
+    >
+      <div class="select md:!col-span-2">
+        <div>
+          <img src="icons/map-pin.svg" />
+          <app-divider [vertical]="true"></app-divider>
+        </div>
+        <select>
+          <option selected>Location</option>
+        </select>
+      </div>
+      <div class="select">
+        <div>
+          <img src="icons/home-modern.svg" />
+          <app-divider [vertical]="true"></app-divider>
+        </div>
+        <select>
+          <option selected>Property Type</option>
+        </select>
+      </div>
+      <div class="select">
+        <div>
+          <img src="icons/banknotes-solid.svg" />
+          <app-divider [vertical]="true"></app-divider>
+        </div>
+        <select>
+          <option selected>Pricing Range</option>
+        </select>
+      </div>
+      <div class="select">
+        <div>
+          <img src="icons/cube.svg" />
+          <app-divider [vertical]="true"></app-divider>
+        </div>
+        <select>
+          <option selected>Property Size</option>
+        </select>
+      </div>
+      <div class="select">
+        <div>
+          <img src="icons/calendar.svg" />
+          <app-divider [vertical]="true"></app-divider>
+        </div>
+        <select>
+          <option selected>Build Year</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
