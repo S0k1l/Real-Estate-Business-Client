@@ -10,6 +10,8 @@
       categories to suit every dreamer, your journey
     </p>
   </div>
+
+  <!-- Search For A Property -->
   <div
     class="flex flex-col justify-center 2xl:-mt-14 2xl:gap-2.5 2xl:px-40 lg:-mt-11 lg:gap-0.5 lg:px-20 md:px-8 px-4 gap-5"
   >
@@ -72,4 +74,16 @@
       </div>
     </div>
   </div>
+</div>
+<div class="sections">
+  <!-- Properties -->
+  <app-section
+    header="Discover a World of Possibilities"
+    text="Our portfolio of properties is as diverse as your dreams. Explore the following categories to find the perfect property that resonates with your vision of home"
+  >
+    <app-cards-pagination
+      [type]="cardTypes.propertiesCard"
+      [propertyType]="propertyTypes.standard"
+    ></app-cards-pagination>
+  </app-section>
 </div>

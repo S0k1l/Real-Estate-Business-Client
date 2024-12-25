@@ -15,7 +15,8 @@
     @switch (type) { @case (cardTypes.propertiesCard) {
     <app-property-card
       *ngFor="let item of visibleItems"
-      [details]="item"
+      [data]="item"
+      [type]="propertyType"
     ></app-property-card>
     } @case (cardTypes.testimonialCard) {
     <app-testimonial-card

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { PropertyCardComponent } from '../property-card/property-card.component';
-import { CARD_TYPES } from '../../../data/constants';
+import { CARD_TYPES, PROPERTY_TYPES } from '../../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
 import { ResizeService } from '../../../services/resize.service';
@@ -24,8 +24,9 @@ export class CardsPaginationComponent implements OnInit {
   constructor(private resizeService: ResizeService) {}
 
   @Input() type: string = '';
-
+  @Input() propertyType: string = '';
   cardTypes = CARD_TYPES;
+
   data: any = [];
   visibleItems = this.data;
   screenWidth!: number;
@@ -42,9 +43,12 @@ export class CardsPaginationComponent implements OnInit {
           {
             imgUrl:
               'imgs/properties/Seaside Serenity Villa/Seaside Serenity Villa.png',
+            quote: 'Coastal Escapes - Where Waves Beckon',
             name: 'Seaside Serenity Villa',
-            description:
+            details:
               'A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood',
+            description:
+              'Wake up to the soothing melody of waves. This beachfront villa offers.',
             bedrooms: 4,
             bathroom: 3,
             type: 'Villa',
@@ -52,9 +56,12 @@ export class CardsPaginationComponent implements OnInit {
           },
           {
             imgUrl: 'imgs/properties/Metropolitan Haven/Metropolitan Haven.png',
+            quote: 'Urban Oasis - Life in the Heart of the City',
             name: 'Seaside Serenity Villa',
-            description:
+            details:
               'A chic and fully-furnished 2-bedroom apartment with panoramic city views',
+            description:
+              'Immerse yourself in the energy of the city. This modern apartment in the heart',
             bedrooms: 2,
             bathroom: 2,
             type: 'Villa',
@@ -63,9 +70,13 @@ export class CardsPaginationComponent implements OnInit {
           {
             imgUrl:
               'imgs/properties/Rustic Retreat Cottage/Rustic Retreat Cottage.png',
+            quote: "Countryside Charm - Escape to Nature's Embrace",
+
             name: 'Seaside Serenity Villa',
-            description:
+            details:
               'An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community',
+            description:
+              'Find tranquility in the countryside. This charming cottage is nestled amidst rolling hills',
             bedrooms: 3,
             bathroom: 3,
             type: 'Villa',

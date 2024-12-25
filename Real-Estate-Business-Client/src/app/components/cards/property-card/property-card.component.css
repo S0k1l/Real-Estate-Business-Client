@@ -4,15 +4,15 @@
   @apply hover:underline;
 }
 
-.detail-highlight {
+.highlight {
   @apply bg-gray-10 shadow-inset-1-gray-custom px-3.5 py-2 rounded-3xl w-fit flex flex-row gap-1;
 }
 
-.detail-highlight img {
+.highlight img {
   @apply 2xl:w-6 w-5;
 }
 
-.detail-highlight span {
+.highlight span {
   @apply leading-normal font-medium text-white;
   @apply 2xl:text-lg text-sm;
 }

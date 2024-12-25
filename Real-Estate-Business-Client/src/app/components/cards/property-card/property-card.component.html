@@ -1,30 +1,36 @@
 <div
   class="flex flex-col rounded-xl shadow-inset-1-gray-custom bg-gray-8 2xl:gap-7 2xl:p-10 lg:gap-5 lg:p-7 p-6 gap-4"
 >
-  <img [src]="details.imgUrl" class="w-full rounded-lg" />
+  <img [src]="data.imgUrl" class="w-full rounded-lg" />
   <div class="flex flex-col gap-7">
+    <div *ngIf="type == propertyTypes.standard" class="highlight">
+      <span>{{ data.quote }}</span>
+    </div>
     <div class="flex flex-col gap-1.5 h-24">
       <span
         class="font-semibold leading-normal text-white 2xl:text-2xl lg:text-xl text-lg"
-        >{{ details.name }}</span
+        >{{ data.name }}</span
       >
       <p class="line-clamp-1 relative">
-        {{ details.description }}
+        {{ type == propertyTypes.detailed ? data.details : data.description }}
         <a href="#" class="read-more">... Read More</a>
       </p>
     </div>
-    <div class="flex flex-wrap 2xl:gap-2.5 gap-1.5">
-      <div class="detail-highlight">
+    <div
+      *ngIf="type == propertyTypes.detailed"
+      class="flex flex-wrap 2xl:gap-2.5 gap-1.5"
+    >
+      <div class="highlight">
         <img src="icons/bed.svg" />
-        <span>{{ details.bedrooms }}-Bedroom</span>
+        <span>{{ data.bedrooms }}-Bedroom</span>
       </div>
-      <div class="detail-highlight">
+      <div class="highlight">
         <img src="icons/bath.svg" />
-        <span>{{ details.bathroom }}-Bathroom</span>
+        <span>{{ data.bathroom }}-Bathroom</span>
       </div>
-      <div class="detail-highlight">
+      <div class="highlight">
         <img src="icons/building-office.svg" />
-        <span>{{ details.type }}</span>
+        <span>{{ data.type }}</span>
       </div>
     </div>
     <div class="flex flex-row 2xl:gap-12 lg:gap-10 gap-5">
@@ -32,7 +38,7 @@
         <p>Price</p>
         <span
           class="font-semibold 2xl:text-2xl lg:text-xl text-lg leading-normal text-white"
-          >${{ details.price }}</span
+          >${{ data.price }}</span
         >
       </div>
       <button class="w-4/6 btn-purple">View Property Details</button>

@@ -4,3 +4,8 @@ export const CARD_TYPES = {
   faqCard: 'faqCard',
   valuedClientCard: 'valuedClientCard',
 };
+
+export const PROPERTY_TYPES = {
+  detailed: 'detailed',
+  standard: 'standard',
+};
