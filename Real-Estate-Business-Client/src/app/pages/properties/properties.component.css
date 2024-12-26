@@ -27,3 +27,59 @@
   @apply 2xl:pl-16 2xl:pr-20 2xl:py-6 2xl:rounded-xl 2xl:text-lg lg:pl-12 lg:pr-14 lg:py-3.5 rounded-lg py-3.5 p-14;
   @apply 2xl:bg-[length:32px_32px] 2xl:bg-[center_right_20px] lg:bg-[center_right_14px] bg-[length:28px_28px] bg-[center_right_10px];
 }
+
+.form-field {
+  @apply flex w-full flex-col 2xl:gap-4 md:gap-3.5 gap-2.5;
+}
+
+.form-field label {
+  @apply text-white font-semibold leading-normal 2xl:text-xl text-base;
+}
+
+.form-field > input {
+  @apply bg-gray-10 shadow-inset-1-gray-custom rounded-lg placeholder-gray-40 text-gray-40 font-medium leading-5;
+  @apply 2xl:px-5 2xl:py-6 2xl:text-lg 2xl:rounded-lg px-5 py-4 rounded-md text-sm;
+  @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
+}
+
+.form-field select {
+  background-image: url(/icons/select-arrow.svg);
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  @apply bg-gray-10 shadow-inset-1-gray-custom rounded-lg placeholder-gray-40 text-gray-40 font-medium leading-5;
+  @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
+  @apply 2xl:px-5 2xl:py-6 2xl:text-lg 2xl:rounded-lg px-5 py-4 rounded-md text-sm;
+  @apply 2xl:bg-[length:32px_32px] 2xl:bg-[center_right_20px] md:bg-[center_right_14px] bg-[length:28px_28px] bg-[center_right_10px];
+}
+
+.form-field > div {
+  @apply relative w-full;
+}
+
+.form-field > div input[type="text"] {
+  @apply bg-gray-10 w-full shadow-inset-1-gray-custom rounded-lg placeholder-gray-40 text-gray-40 font-medium leading-5 text-lg;
+  @apply 2xl:pl-[60px] 2xl:pr-12 2xl:py-6 2xl:text-lg 2xl:rounded-lg pl-[46px] pr-9 py-4 rounded-md text-sm;
+  @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
+}
+
+.form-field > div img {
+  @apply absolute inset-y-0 my-auto 2xl:left-6 2xl:w-6 left-5 w-5;
+}
+
+.form-field > div input[type="radio"] {
+  @apply inset-y-0 my-auto absolute cursor-pointer rounded-full appearance-none transition-all ease-linear border border-purple-60 checked:2xl:border-8 checked:border-[5px] duration-100;
+  @apply 2xl:w-4 2xl:h-4 2xl:right-6 w-2.5 h-2.5 right-5;
+}
+
+.form-field > textarea {
+  @apply bg-gray-10 shadow-inset-1-gray-custom rounded-lg resize-none placeholder-gray-40 text-gray-40 font-medium leading-5;
+  @apply 2xl:px-5 2xl:py-6 2xl:text-lg 2xl:rounded-lg 2xl:h-40 md:h-28 h-20 px-5 py-4 rounded-md text-sm;
+  @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
+}
+
+a {
+  @apply underline;
+}

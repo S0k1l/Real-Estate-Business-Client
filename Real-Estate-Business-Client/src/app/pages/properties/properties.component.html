@@ -86,4 +86,116 @@
       [propertyType]="propertyTypes.standard"
     ></app-cards-pagination>
   </app-section>
+
+  <!-- Let's Make it Happen -->
+  <app-section
+    header="Let's Make it Happen"
+    text="Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together."
+  >
+    <form
+      class="flex flex-col shadow-inset-1-gray-custom rounded-xl 2xl:p-24 2xl:gap-12 lg:p-12 p-5 gap-7"
+    >
+      <div
+        class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 2xl:gap-12 md:gap-7 gap-5"
+      >
+        <!-- Row 1 -->
+        <div class="form-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Enter First Name" />
+        </div>
+
+        <div class="form-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter Last Name" />
+        </div>
+
+        <div class="form-field">
+          <label>Email</label>
+          <input type="text" placeholder="Enter your Email" />
+        </div>
+
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="text" placeholder="Enter Phone Number" />
+        </div>
+
+        <!-- Row 2 -->
+        <div class="form-field">
+          <label>Preferred Location</label>
+          <select>
+            <option selected>Select Location</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Property Type</label>
+          <select>
+            <option selected>Select Property Type</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>No. of Bathrooms</label>
+          <select>
+            <option selected>Select no. of Bedrooms</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>No. of Bedrooms</label>
+          <select>
+            <option selected>Select no. of Bedrooms</option>
+          </select>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="form-field md:col-span-2 grid-cols-1">
+          <label>Budget</label>
+          <select>
+            <option selected>Select Budget</option>
+          </select>
+        </div>
+
+        <div class="form-field md:col-span-2 grid-cols-1">
+          <label>Preferred Contact Method</label>
+          <div
+            class="grid md:grid-cols-2 grid-cols-1 2xl:gap-12 md:gap-7 gap-4"
+          >
+            <div class="relative w-full">
+              <input type="text" placeholder="Enter Your Number" />
+              <img src="icons/phone.svg" />
+              <input name="radio" type="radio" checked />
+            </div>
+            <div class="relative w-full">
+              <input type="text" placeholder="Enter Your Email" />
+              <img src="icons/mail.svg" />
+              <input name="radio" type="radio" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="form-field xl:col-span-4 md:col-span-2 grid-cols-1">
+          <label>Message</label>
+          <textarea placeholder="Enter your Message here.."></textarea>
+        </div>
+      </div>
+      <div
+        class="flex md:flex-row flex-col justify-between md:gap-0 gap-5 md:items-center items-start"
+      >
+        <div class="flex flex-row gap-2.5 h-fit">
+          <input
+            type="checkbox"
+            class="appearance-none cursor-pointer rounded border 2xl:w-7 2xl:h-7 w-6 h-6 bg-gray-10 checked:bg-purple-60 bg-opacity-0 checked:bg-[url('/icons/check.svg')] border-gray-15 checked:border-purple-60"
+          />
+          <label
+            ><p>
+              I agree with <a>Terms of Use</a> and <a>Privacy Policy</a>
+            </p></label
+          >
+        </div>
+        <button class="btn-purple md:w-fit w-full">Send Your Message</button>
+      </div>
+    </form>
+  </app-section>
 </div>
