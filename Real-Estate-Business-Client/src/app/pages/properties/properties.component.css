@@ -1,6 +1,6 @@
 .input {
   @apply w-full border placeholder-gray-40  text-white leading-normal font-medium bg-gray-8 rounded-t-xl border-gray-15 shadow-10-gray-custom;
-  @apply 2xl:py-8 2xl:pl-6 2xl:pr-5 2xl:text-2xl lg:pl-5 lg:py-6 lg:pr-52 lg:text-xl lg:shadow-10-gray-custom lg:rounded-t-xl pl-4 py-5 pr-20 shadow-4-gray-custom rounded-xl text-sm;
+  @apply 2xl:py-8 2xl:pl-6 2xl:pr-5 2xl:text-2xl lg:pl-5 lg:py-6 lg:pr-52 lg:text-xl lg:shadow-10-gray-custom lg:rounded-t-xl lg:rounded-b-none pl-4 py-5 pr-20 shadow-4-gray-custom rounded-xl text-sm;
   @apply focus:outline-none 2xl:focus:ring-2 lg:focus:ring-1 focus:ring-gray-20;
 }
 
