@@ -41,8 +41,7 @@ export class CardsPaginationComponent implements OnInit {
       case this.cardTypes.propertiesCard:
         this.data = [
           {
-            imgUrl:
-              'imgs/properties/Seaside Serenity Villa/Seaside Serenity Villa.png',
+            imgUrl: 'imgs/properties/Seaside Serenity Villa/Image-__.webp',
             quote: 'Coastal Escapes - Where Waves Beckon',
             name: 'Seaside Serenity Villa',
             details:
@@ -55,7 +54,7 @@ export class CardsPaginationComponent implements OnInit {
             price: '550,000',
           },
           {
-            imgUrl: 'imgs/properties/Metropolitan Haven/Metropolitan Haven.png',
+            imgUrl: 'imgs/properties/Metropolitan Haven/Image-__.webp',
             quote: 'Urban Oasis - Life in the Heart of the City',
             name: 'Seaside Serenity Villa',
             details:
@@ -68,8 +67,7 @@ export class CardsPaginationComponent implements OnInit {
             price: '550,000',
           },
           {
-            imgUrl:
-              'imgs/properties/Rustic Retreat Cottage/Rustic Retreat Cottage.png',
+            imgUrl: 'imgs/properties/Rustic Retreat Cottage/Image-__.webp',
             quote: "Countryside Charm - Escape to Nature's Embrace",
 
             name: 'Seaside Serenity Villa',
