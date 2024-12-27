@@ -1,0 +1,36 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-property',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './property.component.html',
+  styleUrl: './property.component.css',
+})
+export class PropertyComponent {
+  images: string[] = [
+    'imgs/properties/Seaside Serenity Villa/Image-_0_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_1_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_2_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_3_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_4_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_5_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_6_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_7_.webp',
+    'imgs/properties/Seaside Serenity Villa/Image-_8_.webp',
+  ];
+
+  currentIndexes: number[] = [0, 1];
+
+  prev(): void {
+    this.currentIndexes[1] = this.currentIndexes[0];
+    this.currentIndexes[0] =
+      (this.currentIndexes[0] - 1 + this.images.length) % this.images.length;
+  }
+
+  next(): void {
+    this.currentIndexes[0] = this.currentIndexes[1];
+    this.currentIndexes[1] = (this.currentIndexes[1] + 1) % this.images.length;
+  }
+}
