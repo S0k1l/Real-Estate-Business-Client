@@ -1,73 +1,100 @@
 <div class="sections">
-  <div class="flex flex-col gap-12">
+  <div class="flex flex-col 2xl:gap-12 lg:gap-10 gap-7">
     <div class="flex flex-row justify-between items-center">
-      <div class="flex flex-row gap-5 h-fit">
-        <span class="font-semibold leading-normal text-white text-3xl">
+      <div class="flex lg:flex-row flex-col h-fit lg:gap-5 gap-2.5">
+        <span
+          class="font-semibold leading-normal text-white 2xl:text-3xl lg:text-2xl text-xl"
+        >
           Seaside Serenity Villa</span
         >
-        <div
-          class="flex flex-row shadow-inset-1-gray-custom rounded-lg gap-1.5 p-2.5"
-        >
-          <svg
-            class="w-6"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="flex flex-row gap-5">
+          <div
+            class="flex flex-row h-fit shadow-inset-1-gray-custom rounded-lg 2xl:gap-1.5 2xl:p-2.5 gap-1 p-2"
           >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M11.5397 22.351C11.57 22.3685 11.5937 22.3821 11.6105 22.3915L11.6384 22.4071C11.8613 22.5294 12.1378 22.5285 12.3608 22.4075L12.3895 22.3915C12.4063 22.3821 12.43 22.3685 12.4603 22.351C12.5207 22.316 12.607 22.265 12.7155 22.1982C12.9325 22.0646 13.2388 21.8676 13.6046 21.6091C14.3351 21.0931 15.3097 20.3274 16.2865 19.3273C18.2307 17.3368 20.25 14.3462 20.25 10.5C20.25 5.94365 16.5563 2.25 12 2.25C7.44365 2.25 3.75 5.94365 3.75 10.5C3.75 14.3462 5.76932 17.3368 7.71346 19.3273C8.69025 20.3274 9.66491 21.0931 10.3954 21.6091C10.7612 21.8676 11.0675 22.0646 11.2845 22.1982C11.393 22.265 11.4793 22.316 11.5397 22.351ZM12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
-              fill="white"
-            />
-          </svg>
-          <span class="text-white leading-normal font-medium text-lg"
-            >Malibu, California</span
-          >
+            <svg
+              class="2xl:w-6 2xl:h-6 w-5 h-5"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M11.5397 22.351C11.57 22.3685 11.5937 22.3821 11.6105 22.3915L11.6384 22.4071C11.8613 22.5294 12.1378 22.5285 12.3608 22.4075L12.3895 22.3915C12.4063 22.3821 12.43 22.3685 12.4603 22.351C12.5207 22.316 12.607 22.265 12.7155 22.1982C12.9325 22.0646 13.2388 21.8676 13.6046 21.6091C14.3351 21.0931 15.3097 20.3274 16.2865 19.3273C18.2307 17.3368 20.25 14.3462 20.25 10.5C20.25 5.94365 16.5563 2.25 12 2.25C7.44365 2.25 3.75 5.94365 3.75 10.5C3.75 14.3462 5.76932 17.3368 7.71346 19.3273C8.69025 20.3274 9.66491 21.0931 10.3954 21.6091C10.7612 21.8676 11.0675 22.0646 11.2845 22.1982C11.393 22.265 11.4793 22.316 11.5397 22.351ZM12 13.5C13.6569 13.5 15 12.1569 15 10.5C15 8.84315 13.6569 7.5 12 7.5C10.3431 7.5 9 8.84315 9 10.5C9 12.1569 10.3431 13.5 12 13.5Z"
+                fill="white"
+              />
+            </svg>
+            <span
+              class="text-white leading-normal font-medium 2xl:text-lg text-sm"
+              >Malibu, California</span
+            >
+          </div>
+          <div class="lg:hidden flex flex-row items-center gap-1">
+            <p>Price</p>
+            <span class="font-semibold leading-normal text-white text-lg"
+              >$1,250,000</span
+            >
+          </div>
         </div>
       </div>
-      <div class="flex flex-col gap-0.5">
+      <div class="lg:flex hidden flex-col gap-0.5">
         <p>Price</p>
-        <span class="font-semibold leading-normal text-white text-2xl"
+        <span
+          class="font-semibold leading-normal text-white 2xl:text-2xl lg:text-xl"
           >$1,250,000</span
         >
       </div>
     </div>
     <div
-      class="flex flex-col bg-gray-10 shadow-inset-1-gray-custom rounded-xl gap-7 p-12"
+      class="flex flex-col bg-gray-10 shadow-inset-1-gray-custom rounded-xl 2xl:gap-7 2xl:p-12 lg:p-10 gap-5 p-5"
     >
-      <div class="flex flex-rows p-5 gap-5 justify-center">
-        <img
-          *ngFor="let item of images; index as i"
-          src="{{ item }}"
-          class="rounded-lg w-36"
-          [ngClass]="{
-            'opacity-50': currentIndexes[1] != i && currentIndexes[0] != i
-          }"
-        />
+      <div class="flex lg:flex-col flex-col-reverse 2xl:gap-7 gap-5">
+        <div
+          class="md:grid md:grid-cols-9 flex flex-row bg-gray-8 shadow-inset-1-gray-custom rounded-xl 2xl:p-5 2xl:gap-5 p-2.5 gap-2.5 overflow-auto"
+        >
+          <img
+            *ngFor="let item of images; index as i"
+            [id]="'image-' + i"
+            src="{{ item }}"
+            class="2xl:rounded-lg rounded-md min-w-16"
+            [ngClass]="{
+              'opacity-50': currentIndexes[0] != i
+            }"
+            (click)="select(i)"
+            #imageList
+          />
+        </div>
+
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
+          <img
+            *ngFor="let item of currentIndexes"
+            src="{{ images[item] }}"
+            class="md:block hidden rounded-lg w-full"
+          />
+          <img
+            src="{{ images[currentIndexes[0]] }}"
+            class="md:hidden block rounded-lg w-full"
+          />
+        </div>
       </div>
-      <div class="flex flex-row justify-center gap-7">
-        <img
-          *ngFor="let item of currentIndexes"
-          src="{{ images[item] }}"
-          class="rounded-lg w-[733px]"
-        />
-      </div>
+
       <div class="flex w-full justify-center">
-        <div class="w-fit flex items-center flex-row gap-2.5 p-2.5">
+        <div
+          class="md:w-fit w-full justify-between rounded-full bg-gray-8 flex items-center flex-row gap-2.5 2xl:p-2.5 p-2"
+        >
           <button class="arrow-btn" (click)="prev()">
             <img src="icons/arrow-left.svg" />
           </button>
-          <div
-            *ngFor="let item of images; index as i"
-            class="w-5 h-1 rounded-full {{
-              currentIndexes[0] == i || currentIndexes[1] == i
-                ? 'bg-purple-60'
-                : 'bg-gray-30'
-            }}"
-          ></div>
+          <div class="flex gap-1 flex-row w-fit">
+            <div
+              *ngFor="let item of images; index as i"
+              class="2xl:w-5 2xl:h-1 w-3 h-1 rounded-full {{
+                currentIndexes[0] == i ? 'bg-purple-60' : 'bg-gray-30'
+              }}"
+            ></div>
+          </div>
           <button class="arrow-btn" (click)="next()">
             <img src="icons/arrow-right.svg" />
           </button>
