@@ -1,0 +1,29 @@
+.description-container {
+  @apply flex flex-col h-fit shadow-inset-1-gray-custom;
+  @apply 2xl:rounded-xl 2xl:gap-12 2xl:p-12 rounded-lg lg:gap-10 lg:p-10 gap-5 p-5;
+}
+
+.description-container span {
+  @apply text-white font-semibold leading-normal 2xl:text-2xl lg:text-xl text-lg;
+}
+
+.description {
+  @apply w-full flex flex-col gap-2.5;
+}
+
+.description > div {
+  @apply flex flex-row gap-1.5;
+}
+
+.description img {
+  @apply 2xl:w-6 w-5;
+}
+
+.key-features {
+  @apply w-full flex flex-row border-l border-purple-60 bg-gradient-to-r from-gray-10;
+  @apply 2xl:px-6 2xl:py-4 lg:px-4 lg:py-3.5 px-3 py-2.5 gap-2.5;
+}
+
+.key-features img {
+  @apply 2xl:w-6 lg:w-5 w-[18px];
+}
