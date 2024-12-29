@@ -1,9 +1,12 @@
 <div class="flex flex-col 2xl:gap-20 lg:gap-14 gap-10">
   <div class="flex flex-row">
     <div
-      class="flex flex-col gap-3.5 relative {{
-        isButton ? 'md:w-3/4' : 'md:w-5/6'
-      }}"
+      class="flex flex-col gap-3.5 relative"
+      [ngClass]="{
+        '!md:w-3/4': isButton,
+        '!md:w-5/6': isRightSection,
+        'w-full': !isRightSection && !isButton,
+      }"
     >
       <app-stars-divider></app-stars-divider>
       <span class="heading">{{ header }}</span>
