@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DividerComponent } from '../../components/divider/divider.component';
+import { SectionComponent } from '../../components/section/section.component';
 
 @Component({
   selector: 'app-property',
   standalone: true,
-  imports: [CommonModule, DividerComponent],
+  imports: [CommonModule, DividerComponent, SectionComponent],
   templateUrl: './property.component.html',
   styleUrl: './property.component.css',
 })
