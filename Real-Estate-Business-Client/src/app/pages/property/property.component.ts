@@ -1,16 +1,23 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DividerComponent } from '../../components/divider/divider.component';
 import { SectionComponent } from '../../components/section/section.component';
+import { PricingComponent } from '../../components/pricing/pricing.component';
+import { ResizeService } from '../../services/resize.service';
 
 @Component({
   selector: 'app-property',
   standalone: true,
-  imports: [CommonModule, DividerComponent, SectionComponent],
+  imports: [CommonModule, DividerComponent, SectionComponent, PricingComponent],
   templateUrl: './property.component.html',
   styleUrl: './property.component.css',
 })
-export class PropertyComponent {
+export class PropertyComponent implements OnInit {
+  @ViewChild('imageList', { static: false }) imageList!: ElementRef;
+
+  screenWidth!: number;
+  isScreenBig: boolean = true;
+
   images: string[] = [
     'imgs/properties/Seaside Serenity Villa/Image-_0_.webp',
     'imgs/properties/Seaside Serenity Villa/Image-_1_.webp',
@@ -23,9 +30,16 @@ export class PropertyComponent {
     'imgs/properties/Seaside Serenity Villa/Image-_8_.webp',
   ];
 
-  @ViewChild('imageList', { static: false }) imageList!: ElementRef;
-
   currentIndexes: number[] = [0, 1];
+
+  constructor(private resizeService: ResizeService) {}
+  ngOnInit(): void {
+    this.resizeService.screenWidth$.subscribe((width) => {
+      this.screenWidth = width;
+      this.updateWindowSize();
+    });
+    this.updateWindowSize();
+  }
 
   prev(): void {
     this.currentIndexes[1] = this.currentIndexes[0];
@@ -53,6 +67,14 @@ export class PropertyComponent {
         block: 'nearest',
         inline: 'center',
       });
+    }
+  }
+
+  updateWindowSize() {
+    if (this.screenWidth < 1440) {
+      this.isScreenBig = false;
+    } else {
+      this.isScreenBig = true;
     }
   }
 }

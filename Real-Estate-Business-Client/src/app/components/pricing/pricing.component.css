@@ -1,0 +1,20 @@
+span {
+  @apply text-white font-semibold leading-normal 2xl:text-2xl lg:text-xl;
+}
+
+p {
+  @apply font-medium text-gray-60 leading-normal;
+  @apply 2xl:text-lg text-sm;
+}
+
+.pricing {
+  @apply w-full flex flex-col 2xl:gap-4 lg:gap-3 gap-2.5;
+}
+
+.pricing > div {
+  @apply flex md:flex-row flex-col md:items-center 2xl:gap-4 gap-3;
+}
+
+.pricing > div > p {
+  @apply bg-gray-10 rounded-lg w-fit shadow-inset-1-gray-custom 2xl:px-3.5 2xl:py-2 px-3 py-1.5;
+}
