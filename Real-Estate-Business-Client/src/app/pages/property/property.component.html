@@ -465,4 +465,17 @@
       </div>
     </div>
   </app-section>
+
+  <!-- FAQ Section -->
+  <app-section
+    [isButton]="true"
+    id="faq"
+    header="Frequently Asked Questions"
+    text="Find answers to common questions about Estatein's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way."
+  >
+    <button class="btn-gray">View All FAQ's</button>
+    <app-cards-pagination [type]="cardTypes.faqCard">
+      <button class="btn-gray">View All FAQ's</button>
+    </app-cards-pagination>
+  </app-section>
 </div>

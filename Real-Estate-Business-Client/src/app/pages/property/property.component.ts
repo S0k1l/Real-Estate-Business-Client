@@ -4,17 +4,26 @@ import { DividerComponent } from '../../components/divider/divider.component';
 import { SectionComponent } from '../../components/section/section.component';
 import { PricingComponent } from '../../components/pricing/pricing.component';
 import { ResizeService } from '../../services/resize.service';
+import { CardsPaginationComponent } from '../../components/cards/cards-pagination/cards-pagination.component';
+import { CARD_TYPES } from '../../data/constants';
 
 @Component({
   selector: 'app-property',
   standalone: true,
-  imports: [CommonModule, DividerComponent, SectionComponent, PricingComponent],
+  imports: [
+    CommonModule,
+    DividerComponent,
+    SectionComponent,
+    PricingComponent,
+    CardsPaginationComponent,
+  ],
   templateUrl: './property.component.html',
   styleUrl: './property.component.css',
 })
 export class PropertyComponent implements OnInit {
   @ViewChild('imageList', { static: false }) imageList!: ElementRef;
 
+  cardTypes = CARD_TYPES;
   screenWidth!: number;
   isScreenBig: boolean = true;
 
