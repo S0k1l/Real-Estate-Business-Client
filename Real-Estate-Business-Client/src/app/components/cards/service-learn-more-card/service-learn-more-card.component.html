@@ -1,0 +1,26 @@
+<div
+  #firstDiv
+  class="h-full shadow-inset-1-gray-top-custom rounded-xl bg-[url('/service-card-abstract-design.webp')] bg-no-repeat bg-cover bg-gray-10 flex flex-col 2xl:gap-7 2xl:p-12 lg:p-10 gap-5 p-6"
+>
+  <div
+    class="flex justify-between"
+    [ngClass]="{
+      'flex-row items-center': !isWidthSmall,
+      'flex-col gap-5': isWidthSmall
+    }"
+  >
+    <span
+      class="text-white leading-normal text-xl"
+      [ngClass]="{
+        'font-bold 2xl:text-3xl lg:text-2xl': !isSmall,
+        'font-semibold 2xl:text-2xl': isSmall
+      }"
+      >{{ heading }}</span
+    >
+    <button *ngIf="!isSmall" class="btn-gray-8">Learn More</button>
+  </div>
+  <p [ngClass]="{ 'lg:text-white-90': isSmall }">
+    {{ text }}
+  </p>
+  <button *ngIf="isSmall" class="btn-gray-8">Learn More</button>
+</div>
