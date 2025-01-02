@@ -108,4 +108,49 @@
       ></app-service-learn-more-card>
     </div>
   </app-section>
+
+  <!-- Investments Features -->
+  <div class="flex xl:flex-row flex-col 2xl:gap-14 lg:gap-12 gap-10">
+    <app-section
+      class="xl:w-1/3"
+      [isRightSection]="false"
+      header="Smart Investments, Informed Decisions"
+      text="Building a real estate portfolio requires a strategic approach. Estatein's Investment Advisory Service empowers you to make smart investments and informed decisions."
+    >
+      <app-service-learn-more-card
+        [isSmall]="true"
+        class="2xl:-mt-10 lg:-mt-4 -mt-2.5"
+        heading="Unlock Your Investment Potential"
+        text="Explore our Property Management Service categories and let us handle the complexities while you enjoy the benefits of property ownership."
+      ></app-service-learn-more-card>
+    </app-section>
+
+    <div
+      class="xl:w-2/3 h-fit grid md:grid-cols-2 grid-cols-1 bg-gray-10 rounded-xl gap-2.5 p-2.5"
+    >
+      <app-service-card
+        heading="Market Insight"
+        text="Stay ahead of market trends with our expert Market Analysis. We provide in-depth insights into real estate market conditions"
+        imgUrl="icons/chart-bar.svg"
+      ></app-service-card>
+
+      <app-service-card
+        heading="ROI Assessment"
+        text="Make investment decisions with confidence. Our ROI Assessment services evaluate the potential returns on your investments"
+        imgUrl="icons/fire.svg"
+      ></app-service-card>
+
+      <app-service-card
+        heading="Customized Strategies"
+        text="Every investor is unique, and so are their goals. We develop Customized Investment Strategies tailored to your specific needs"
+        imgUrl="icons/light-bulb.svg"
+      ></app-service-card>
+
+      <app-service-card
+        heading="Diversification Mastery"
+        text="Diversify your real estate portfolio effectively. Our experts guide you in spreading your investments across various property types and locations"
+        imgUrl="icons/sun.svg"
+      ></app-service-card>
+    </div>
+  </div>
 </div>
