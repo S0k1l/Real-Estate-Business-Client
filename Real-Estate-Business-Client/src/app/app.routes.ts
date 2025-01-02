@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { PropertyComponent } from './pages/property/property.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 export const routes: Routes = [
   {
@@ -20,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'properties/:id',
     component: PropertyComponent,
+  },
+  {
+    path: 'services',
+    component: ServicesComponent,
   },
 ];

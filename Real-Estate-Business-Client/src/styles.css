@@ -103,3 +103,7 @@ p {
 .agreement-section a {
   @apply underline;
 }
+
+.header-section {
+  @apply flex flex-col shadow-inset-1-gray-custom bg-gradient-to-br from-gray-15-85% to-55%;
+}
