@@ -32,9 +32,77 @@
     <nav
       class="w-full flex flex-row justify-center flex-wrap 2xl:gap-7 lg:gap-5 gap-2.5"
     >
-      <a>Instagram</a>
-      <a>LinkedIn</a>
-      <a>Facebook</a>
+      <a class="link">Instagram</a>
+      <a class="link">LinkedIn</a>
+      <a class="link">Facebook</a>
     </nav>
   </app-service-item-btn>
+</div>
+
+<div class="sections">
+  <app-section
+    header="Let's Connect"
+    text="We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with Estatein. Whether you're a prospective client, partner, or simply curious about our services, we're here to answer your questions and provide the assistance you need."
+  >
+    <!-- Contact Form -->
+    <form
+      class="flex flex-col rounded-xl shadow-inset-1-gray-custom 2xl:gap-12 2xl:p-24 lg:p-20 p-5 gap-7"
+    >
+      <div
+        class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 xl:gap-12 gap-7"
+      >
+        <!-- Row 1 -->
+        <div class="form-field">
+          <label>First Name</label>
+          <input type="text" placeholder="Enter First Name" />
+        </div>
+
+        <div class="form-field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Enter Last Name" />
+        </div>
+
+        <div class="form-field">
+          <label>Email</label>
+          <input type="text" placeholder="Enter your Email" />
+        </div>
+        <!-- Row 2 -->
+        <div class="form-field">
+          <label>Phone</label>
+          <input type="text" placeholder="Enter Phone Number" />
+        </div>
+
+        <div class="form-field">
+          <label>Inquiry Type</label>
+          <select>
+            <option selected>Select Inquiry Type</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>How Did You Hear About Us?</label>
+          <select>
+            <option selected>Select</option>
+          </select>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="form-field xl:col-span-3 md:col-span-2 grid-cols-1">
+          <label>Message</label>
+          <textarea placeholder="Enter your Message here.."></textarea>
+        </div>
+      </div>
+      <div class="agreement-section">
+        <div>
+          <input type="checkbox" />
+          <label
+            ><p>
+              I agree with <a>Terms of Use</a> and <a>Privacy Policy</a>
+            </p></label
+          >
+        </div>
+        <button>Send Your Message</button>
+      </div>
+    </form>
+  </app-section>
 </div>
