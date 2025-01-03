@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-service-item-btn',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './service-item-btn.component.html',
   styleUrl: './service-item-btn.component.css',
 })
