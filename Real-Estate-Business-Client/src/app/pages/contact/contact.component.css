@@ -2,3 +2,7 @@
   @apply font-semibold text-white leading-normal;
   @apply 2xl:text-xl lg:text-base text-sm hover:underline;
 }
+
+img {
+  @apply w-full rounded-lg;
+}
