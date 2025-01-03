@@ -1,0 +1,30 @@
+<div
+  class="w-full h-full flex flex-col bg-gray-8 shadow-inset-1-gray-custom 2xl:rounded-xl 2xl:gap-10 2xl:p-12 lg:gap-7 lg:p-10 gap-6 p-6 rounded-lg"
+>
+  <div class="flex flex-col 2xl:gap-3.5 lg:gap-2.5 gap-2">
+    <div class="flex flex-col 2xl:gap-2.5 lg:gap-1.5 gap-1">
+      <span class="font-sm">{{ heading }}</span>
+      <span
+        class="text-white leading-normal font-semibold 2xl:text-3xl lg:text-2xl text-xl"
+        >{{ address }}</span
+      >
+    </div>
+    <P>{{ text }}</P>
+  </div>
+  <div class="flex flex-row flex-wrap 2xl:gap-2.5 gap-2">
+    <div class="info-block">
+      <img src="icons/mail.svg" />
+      <span class="font-sm">{{ email }}</span>
+    </div>
+    <div class="info-block">
+      <img src="icons/phone.svg" />
+      <span class="font-sm">{{ phone }}</span>
+    </div>
+    <div class="info-block">
+      <img src="icons/map-pin-white.svg" />
+      <span class="font-sm">{{ city }}</span>
+    </div>
+  </div>
+  <div class="h-full"></div>
+  <button class="btn-purple">Get Direction</button>
+</div>

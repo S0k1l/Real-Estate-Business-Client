@@ -105,4 +105,38 @@
       </div>
     </form>
   </app-section>
+
+  <!-- Our Offices -->
+  <app-section
+    header="Discover Our Office Locations"
+    text="Estatein is here to serve you across multiple locations. Whether you're looking to meet our team, discuss real estate opportunities, or simply drop by for a chat, we have offices conveniently located to serve your needs. Explore the categories below to find the Estatein office nearest to you"
+  >
+    <div class="flex flex-col gap-12">
+      <div
+        class="xl:w-2/5 md:w-1/2 grid grid-cols-3 bg-gray-10 2xl:rounded-xl rounded-lg gap-2.5 p-2.5"
+      >
+        <button class="w-full btn-gray-8">All</button>
+        <button class="w-full btn-gray">Regional</button>
+        <button class="w-full btn-gray">International</button>
+      </div>
+      <div class="grid lg:grid-cols-2 grid-cols-1 2xl:gap-7 gap-5">
+        <app-office-location-card
+          heading="Main Headquarters"
+          address="123 Estatein Plaza, City Center, Metropolis"
+          text="Our main headquarters serve as the heart of Estatein. Located in the bustling city center, this is where our core team of experts operates, driving the excellence and innovation that define us."
+          email="info@estatein.com"
+          phone="+1 (123) 456-7890"
+          city="Metropolis"
+        ></app-office-location-card>
+        <app-office-location-card
+          heading="Regional Offices"
+          address="456 Urban Avenue, Downtown District, Metropolis"
+          text="Estatein's presence extends to multiple regions, each with its own dynamic real estate landscape. Discover our regional offices, staffed by local experts who understand the nuances of their respective markets."
+          email="info@estatein.com"
+          phone="+1 (123) 456-7890"
+          city="Metropolis"
+        ></app-office-location-card>
+      </div>
+    </div>
+  </app-section>
 </div>

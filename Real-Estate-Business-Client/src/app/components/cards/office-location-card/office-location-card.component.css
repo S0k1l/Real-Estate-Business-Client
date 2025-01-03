@@ -1,0 +1,10 @@
+.font-sm {
+  @apply text-white leading-normal font-medium 2xl:text-lg text-sm;
+}
+
+.info-block {
+  @apply flex h-fit flex-row rounded-full bg-gray-10 shadow-inset-1-gray-custom 2xl:gap-1.5 2xl:px-5 2xl:py-3.5 gap-1 px-4 py-2.5;
+}
+.info-block img {
+  @apply 2xl:w-6 w-5;
+}
