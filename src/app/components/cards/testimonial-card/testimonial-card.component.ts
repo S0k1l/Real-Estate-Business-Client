@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Review } from '../../../interfaces/review';
 
 @Component({
   selector: 'app-testimonial-card',
@@ -9,6 +10,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './testimonial-card.component.css',
 })
 export class TestimonialCardComponent {
-  @Input() details!: any;
+  @Input() details!: Review;
   stars = Array(5).fill(0);
 }

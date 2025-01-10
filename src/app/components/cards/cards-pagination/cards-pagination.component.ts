@@ -6,6 +6,7 @@ import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.c
 import { FaqCardComponent } from '../faq-card/faq-card.component';
 import { ResizeService } from '../../../services/resize.service';
 import { ValuedClientCardComponent } from '../valued-client-card/valued-client-card.component';
+import { PaginationService } from '../../../services/pagination.service';
 
 @Component({
   selector: 'app-cards-pagination',
@@ -21,7 +22,10 @@ import { ValuedClientCardComponent } from '../valued-client-card/valued-client-c
   styleUrl: './cards-pagination.component.css',
 })
 export class CardsPaginationComponent implements OnInit {
-  constructor(private resizeService: ResizeService) {}
+  constructor(
+    private resizeService: ResizeService,
+    private paginationService: PaginationService
+  ) {}
 
   @Input() type: string = '';
   @Input() propertyType: string = '';
@@ -31,12 +35,54 @@ export class CardsPaginationComponent implements OnInit {
   visibleItems = this.data;
   screenWidth!: number;
 
+  curentPage: number = 1;
+  hasPreviousPage: boolean = false;
+  hasNextPage: boolean = true;
+  totalPages: number = 10;
+  pageSize: number = 3;
+
   ngOnInit() {
     this.resizeService.screenWidth$.subscribe((width) => {
       this.screenWidth = width;
       this.updateVisibleItems();
     });
 
+    this.updateVisibleItems();
+  }
+
+  updateVisibleItems() {
+    if (this.type == this.cardTypes.valuedClientCard) {
+      if (this.screenWidth < 1024) {
+        this.visibleItems = this.data.slice(0, 1);
+        this.pageSize = 1;
+      } else {
+        this.visibleItems = this.data.slice(0, 2);
+        this.pageSize = 2;
+      }
+    } else {
+      if (this.screenWidth < 768) {
+        this.visibleItems = this.data.slice(0, 1);
+        this.pageSize = 1;
+      } else if (this.screenWidth < 1280) {
+        this.visibleItems = this.data.slice(0, 2);
+        this.pageSize = 2;
+      } else {
+        this.visibleItems = this.data.slice(0, 3);
+        this.pageSize = 3;
+      }
+    }
+
+    this.getData();
+  }
+
+  nextPage() {
+    this.curentPage = this.hasNextPage
+      ? (this.curentPage += 1)
+      : (this.curentPage = 1);
+    this.getData();
+  }
+
+  getData() {
     switch (this.type) {
       case this.cardTypes.propertiesCard:
         this.data = [
@@ -83,35 +129,17 @@ export class CardsPaginationComponent implements OnInit {
         ];
         break;
       case this.cardTypes.testimonialCard:
-        this.data = [
-          {
-            rating: 5,
-            header: 'Exceptional Service!',
-            description:
-              "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a breeze. Highly recommended!",
-            userImg: 'imgs/users/Wade Warren.webp',
-            userName: 'Wade Warren',
-            userLocation: 'USA, California',
-          },
-          {
-            rating: 4,
-            header: 'Efficient and Reliable',
-            description:
-              "Estatein provided us with top-notch service. They helped us sell our property quickly and at a great price. We couldn't be happier with the results.",
-            userImg: 'imgs/users/Emelie Thomson.webp',
-            userName: 'Emelie Thomson',
-            userLocation: 'USA, Florida',
-          },
-          {
-            rating: 3,
-            header: 'Trusted Advisors',
-            description:
-              'The Estatein team guided us through the entire buying process. Their knowledge and commitment to our needs were impressive. Thank you for your support!',
-            userImg: 'imgs/users/John Mans.webp',
-            userName: 'John Mans',
-            userLocation: 'USA, Nevada',
-          },
-        ];
+        this.paginationService
+          .getReviews(this.curentPage, this.pageSize)
+          .subscribe({
+            next: (res) => {
+              this.data = res.items;
+              this.hasNextPage = res.hasNextPage;
+              this.hasPreviousPage = res.hasPreviousPage;
+              this.totalPages = res.totalPages;
+            },
+          });
+
         break;
 
       case this.cardTypes.faqCard:
@@ -153,26 +181,6 @@ export class CardsPaginationComponent implements OnInit {
         break;
       default:
         break;
-    }
-
-    this.updateVisibleItems();
-  }
-
-  updateVisibleItems() {
-    if (this.type == this.cardTypes.valuedClientCard) {
-      if (this.screenWidth < 1024) {
-        this.visibleItems = this.data.slice(0, 1);
-      } else {
-        this.visibleItems = this.data.slice(0, 2);
-      }
-    } else {
-      if (this.screenWidth < 768) {
-        this.visibleItems = this.data.slice(0, 1);
-      } else if (this.screenWidth < 1280) {
-        this.visibleItems = this.data.slice(0, 2);
-      } else {
-        this.visibleItems = this.data.slice(0, 3);
-      }
     }
   }
 }

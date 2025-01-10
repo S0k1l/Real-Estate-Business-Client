@@ -20,7 +20,7 @@
     ></app-property-card>
     } @case (cardTypes.testimonialCard) {
     <app-testimonial-card
-      *ngFor="let item of visibleItems"
+      *ngFor="let item of data"
       [details]="item"
     ></app-testimonial-card>
     } @case (cardTypes.faqCard) {
@@ -35,13 +35,14 @@
     <div class="md:flex md:flex-row md:justify-between hidden">
       <span
         class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
-        >01 <span class="text-gray-60">of 60</span></span
+        >{{ curentPage }}
+        <span class="text-gray-60">of {{ totalPages }}</span></span
       >
       <div class="flex flex-row gap-2.5">
         <button class="arrow-btn">
           <img src="icons/arrow-left.svg" />
         </button>
-        <button class="arrow-btn">
+        <button class="arrow-btn" (click)="nextPage()">
           <img src="icons/arrow-right.svg" />
         </button>
       </div>
@@ -56,9 +57,10 @@
         </button>
         <span
           class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
-          >01 <span class="text-gray-60">of 60</span></span
+          >{{ curentPage }}
+          <span class="text-gray-60">of {{ totalPages }}</span></span
         >
-        <button class="arrow-btn">
+        <button class="arrow-btn" (click)="nextPage()">
           <img src="icons/arrow-right.svg" />
         </button>
       </div>
