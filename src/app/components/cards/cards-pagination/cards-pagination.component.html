@@ -3,7 +3,7 @@
 
   <div class="grid lg:grid-cols-2 lg:gap-12 grid-cols-1 gap-0">
     <app-valued-client-card
-      *ngFor="let item of visibleItems"
+      *ngFor="let item of data"
       [details]="item"
     ></app-valued-client-card>
   </div>
@@ -35,7 +35,7 @@
     <div class="md:flex md:flex-row md:justify-between hidden">
       <span
         class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
-        >{{ curentPage }}
+        >{{ currentPage }}
         <span class="text-gray-60">of {{ totalPages }}</span></span
       >
       <div class="flex flex-row gap-2.5">
@@ -57,7 +57,7 @@
         </button>
         <span
           class="text-white 2xl:text-xl lg:text-base font-medium leading-normal"
-          >{{ curentPage }}
+          >{{ currentPage }}
           <span class="text-gray-60">of {{ totalPages }}</span></span
         >
         <button class="arrow-btn" (click)="nextPage()">

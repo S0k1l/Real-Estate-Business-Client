@@ -19,4 +19,12 @@ export class PaginationService {
     this.http.get<PaginationResponse>(
       `${this.apiUrl}/ReviewsCotroller?pageIndex=${pageIndex}&pageSize=${pageSize}`
     );
+
+  getValuedClients = (
+    pageIndex: number,
+    pageSize: number
+  ): Observable<PaginationResponse> =>
+    this.http.get<PaginationResponse>(
+      `${this.apiUrl}/ValuedClients?pageIndex=${pageIndex}&pageSize=${pageSize}`
+    );
 }

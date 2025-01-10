@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DividerComponent } from '../../divider/divider.component';
+import { ValuedClient } from '../../../interfaces/valued-client';
 
 @Component({
   selector: 'app-valued-client-card',
@@ -9,5 +10,5 @@ import { DividerComponent } from '../../divider/divider.component';
   styleUrl: './valued-client-card.component.css',
 })
 export class ValuedClientCardComponent {
-  @Input() details!: any;
+  @Input() details!: ValuedClient;
 }

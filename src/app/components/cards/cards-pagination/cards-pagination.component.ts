@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { PropertyCardComponent } from '../property-card/property-card.component';
-import { CARD_TYPES, PROPERTY_TYPES } from '../../../data/constants';
+import { CARD_TYPES } from '../../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
 import { ResizeService } from '../../../services/resize.service';
@@ -35,7 +35,7 @@ export class CardsPaginationComponent implements OnInit {
   visibleItems = this.data;
   screenWidth!: number;
 
-  curentPage: number = 1;
+  currentPage: number = 1;
   hasPreviousPage: boolean = false;
   hasNextPage: boolean = true;
   totalPages: number = 10;
@@ -76,9 +76,9 @@ export class CardsPaginationComponent implements OnInit {
   }
 
   nextPage() {
-    this.curentPage = this.hasNextPage
-      ? (this.curentPage += 1)
-      : (this.curentPage = 1);
+    this.currentPage = this.hasNextPage
+      ? (this.currentPage += 1)
+      : (this.currentPage = 1);
     this.getData();
   }
 
@@ -130,7 +130,7 @@ export class CardsPaginationComponent implements OnInit {
         break;
       case this.cardTypes.testimonialCard:
         this.paginationService
-          .getReviews(this.curentPage, this.pageSize)
+          .getReviews(this.currentPage, this.pageSize)
           .subscribe({
             next: (res) => {
               this.data = res.items;
@@ -160,24 +160,16 @@ export class CardsPaginationComponent implements OnInit {
         ];
         break;
       case this.cardTypes.valuedClientCard:
-        this.data = [
-          {
-            since: '2019',
-            heading: 'ABC Corporation',
-            domain: 'Commercial Real Estate',
-            category: 'Luxury Home Development',
-            comment:
-              "Estatein's expertise in finding the perfect office space for our expanding operations was invaluable. They truly understand our business needs.",
-          },
-          {
-            since: '2018',
-            heading: 'GreenTech Enterprises',
-            domain: 'Commercial Real Estate',
-            category: 'Retail Space',
-            comment:
-              "Estatein's ability to identify prime retail locations helped us expand our brand presence. They are a trusted partner in our growth.",
-          },
-        ];
+        this.paginationService
+          .getValuedClients(this.currentPage, this.pageSize)
+          .subscribe({
+            next: (res) => {
+              this.data = res.items;
+              this.hasNextPage = res.hasNextPage;
+              this.hasPreviousPage = res.hasPreviousPage;
+              this.totalPages = res.totalPages;
+            },
+          });
         break;
       default:
         break;
