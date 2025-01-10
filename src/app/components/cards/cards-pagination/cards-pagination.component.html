@@ -39,7 +39,7 @@
         <span class="text-gray-60">of {{ totalPages }}</span></span
       >
       <div class="flex flex-row gap-2.5">
-        <button class="arrow-btn">
+        <button class="arrow-btn" (click)="PreviousPage()">
           <img src="icons/arrow-left.svg" />
         </button>
         <button class="arrow-btn" (click)="nextPage()">
@@ -52,7 +52,7 @@
       <div
         class="flex flex-row gap-2.5 items-center only:justify-between only:w-full"
       >
-        <button class="arrow-btn">
+        <button class="arrow-btn" (click)="PreviousPage()">
           <img src="icons/arrow-left.svg" />
         </button>
         <span

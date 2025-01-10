@@ -82,6 +82,13 @@ export class CardsPaginationComponent implements OnInit {
     this.getData();
   }
 
+  PreviousPage() {
+    this.currentPage = this.hasPreviousPage
+      ? (this.currentPage -= 1)
+      : (this.currentPage = this.totalPages);
+    this.getData();
+  }
+
   getData() {
     switch (this.type) {
       case this.cardTypes.propertiesCard:
