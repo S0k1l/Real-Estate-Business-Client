@@ -33,7 +33,10 @@
           <app-divider [vertical]="true"></app-divider>
         </div>
         <select>
-          <option selected>Location</option>
+          <option selected [value]="null">Location</option>
+          <option *ngFor="let item of locations">
+            {{ item }}
+          </option>
         </select>
       </div>
       <div class="select">
