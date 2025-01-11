@@ -46,6 +46,9 @@
         </div>
         <select>
           <option selected>Property Type</option>
+          <option [value]="item.id" *ngFor="let item of types">
+            {{ item.type }}
+          </option>
         </select>
       </div>
       <div class="select">

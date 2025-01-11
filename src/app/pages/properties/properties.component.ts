@@ -5,6 +5,8 @@ import { CardsPaginationComponent } from '../../components/cards/cards-paginatio
 import { CARD_TYPES, PROPERTY_TYPES } from '../../data/constants';
 import { LocationsService } from '../../services/locations.service';
 import { CommonModule } from '@angular/common';
+import { HousesTypesService } from '../../services/houses-types.service';
+import { HousesTypes } from '../../interfaces/houses-types';
 
 @Component({
   selector: 'app-properties',
@@ -22,14 +24,22 @@ export class PropertiesComponent implements OnInit {
   cardTypes = CARD_TYPES;
   propertyTypes = PROPERTY_TYPES;
   locations: string[] = [];
+  types: HousesTypes[] = [];
 
-  constructor(private locationsService: LocationsService) {}
+  constructor(
+    private locationsService: LocationsService,
+    private categoriesService: HousesTypesService
+  ) {}
 
   ngOnInit(): void {
     this.locationsService.getAll().subscribe({
       next: (res) => {
         this.locations = res.locations;
       },
+    });
+
+    this.categoriesService.getAll().subscribe({
+      next: (res) => (this.types = res),
     });
   }
 }
