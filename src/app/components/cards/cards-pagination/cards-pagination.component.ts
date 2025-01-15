@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { PropertyCardComponent } from '../property-card/property-card.component';
-import { CARD_TYPES } from '../../../data/constants';
+import { CARD_TYPES, PROPERTY_TYPES } from '../../../data/constants';
 import { TestimonialCardComponent } from '../testimonial-card/testimonial-card.component';
 import { FaqCardComponent } from '../faq-card/faq-card.component';
 import { ResizeService } from '../../../services/resize.service';
 import { ValuedClientCardComponent } from '../valued-client-card/valued-client-card.component';
 import { PaginationService } from '../../../services/pagination.service';
+import { Review } from '../../../interfaces/review';
+import { ValuedClient } from '../../../interfaces/valued-client';
+import { HouseDetailed } from '../../../interfaces/house-detailed';
+import { HouseStandard } from '../../../interfaces/house-standard';
+import { SearchRequest } from '../../../interfaces/search-request';
 
 @Component({
   selector: 'app-cards-pagination',
@@ -21,24 +26,37 @@ import { PaginationService } from '../../../services/pagination.service';
   templateUrl: './cards-pagination.component.html',
   styleUrl: './cards-pagination.component.css',
 })
-export class CardsPaginationComponent implements OnInit {
+export class CardsPaginationComponent implements OnInit, OnChanges {
   constructor(
     private resizeService: ResizeService,
     private paginationService: PaginationService
   ) {}
+  ngOnChanges(): void {
+    this.currentPage = 1;
+    this.ngOnInit();
+  }
 
   @Input() type: string = '';
   @Input() propertyType: string = '';
   cardTypes = CARD_TYPES;
+  propertyTypes = PROPERTY_TYPES;
+  @Input() searchRequest: SearchRequest = {
+    name: null,
+    location: null,
+    propertyTypeId: null,
+    pricingRange: null,
+    propertySize: null,
+  };
 
-  data: any = [];
+  data: Review[] | ValuedClient[] | HouseDetailed[] | HouseStandard[] | any[] =
+    [];
   visibleItems = this.data;
   screenWidth!: number;
 
   currentPage: number = 1;
   hasPreviousPage: boolean = false;
-  hasNextPage: boolean = true;
-  totalPages: number = 10;
+  hasNextPage: boolean = false;
+  totalPages: number = 1;
   pageSize: number = 3;
 
   ngOnInit() {
@@ -46,7 +64,6 @@ export class CardsPaginationComponent implements OnInit {
       this.screenWidth = width;
       this.updateVisibleItems();
     });
-
     this.updateVisibleItems();
   }
 
@@ -92,48 +109,35 @@ export class CardsPaginationComponent implements OnInit {
   getData() {
     switch (this.type) {
       case this.cardTypes.propertiesCard:
-        this.data = [
-          {
-            imgUrl: 'imgs/properties/Seaside Serenity Villa/Image-__.webp',
-            quote: 'Coastal Escapes - Where Waves Beckon',
-            name: 'Seaside Serenity Villa',
-            details:
-              'A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood',
-            description:
-              'Wake up to the soothing melody of waves. This beachfront villa offers.',
-            bedrooms: 4,
-            bathroom: 3,
-            type: 'Villa',
-            price: '550,000',
-          },
-          {
-            imgUrl: 'imgs/properties/Metropolitan Haven/Image-__.webp',
-            quote: 'Urban Oasis - Life in the Heart of the City',
-            name: 'Seaside Serenity Villa',
-            details:
-              'A chic and fully-furnished 2-bedroom apartment with panoramic city views',
-            description:
-              'Immerse yourself in the energy of the city. This modern apartment in the heart',
-            bedrooms: 2,
-            bathroom: 2,
-            type: 'Villa',
-            price: '550,000',
-          },
-          {
-            imgUrl: 'imgs/properties/Rustic Retreat Cottage/Image-__.webp',
-            quote: "Countryside Charm - Escape to Nature's Embrace",
-
-            name: 'Seaside Serenity Villa',
-            details:
-              'An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community',
-            description:
-              'Find tranquility in the countryside. This charming cottage is nestled amidst rolling hills',
-            bedrooms: 3,
-            bathroom: 3,
-            type: 'Villa',
-            price: '550,000',
-          },
-        ];
+        if (this.propertyType == this.propertyTypes.detailed) {
+          this.paginationService
+            .getHouseDetailed(this.currentPage, this.pageSize)
+            .subscribe({
+              next: (res) => {
+                this.data = res.items;
+                this.hasNextPage = res.hasNextPage;
+                this.hasPreviousPage = res.hasPreviousPage;
+                this.totalPages = res.totalPages;
+              },
+            });
+        } else {
+          if (this.propertyType == this.propertyTypes.standard) {
+            this.paginationService
+              .getHouseWithSearch(
+                this.currentPage,
+                this.pageSize,
+                this.searchRequest
+              )
+              .subscribe({
+                next: (res) => {
+                  this.data = res.items;
+                  this.hasNextPage = res.hasNextPage;
+                  this.hasPreviousPage = res.hasPreviousPage;
+                  this.totalPages = res.totalPages;
+                },
+              });
+          }
+        }
         break;
       case this.cardTypes.testimonialCard:
         this.paginationService

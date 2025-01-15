@@ -8,6 +8,7 @@ import { HousesTypesService } from '../../services/houses-types.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
 import { SelectOption } from '../../interfaces/select-option';
+import { SearchRequest } from '../../interfaces/search-request';
 
 @Component({
   selector: 'app-properties',
@@ -34,6 +35,13 @@ export class PropertiesComponent implements OnInit {
   propertySize!: SelectOption[];
   buildYears!: SelectOption[];
   bathAndBeds!: SelectOption[];
+  searchRequest: SearchRequest = {
+    name: null,
+    location: null,
+    propertyTypeId: null,
+    pricingRange: null,
+    propertySize: null,
+  };
 
   constructor(
     public formBuilder: FormBuilder,
@@ -103,10 +111,12 @@ export class PropertiesComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
-  }
-
-  onOptionSelected(selectedValue: string) {
-    console.log('Selected Value:', selectedValue);
+    this.searchRequest = {
+      name: this.form.value.name,
+      location: this.form.value.location,
+      propertyTypeId: this.form.value.type,
+      pricingRange: this.form.value.priceRange,
+      propertySize: this.form.value.propertySize,
+    };
   }
 }
