@@ -1,4 +1,4 @@
-<div class="sections">
+<div *ngIf="property" class="sections">
   <div class="flex flex-col gap-7">
     <!-- Image Section -->
     <div class="flex flex-col 2xl:gap-12 lg:gap-10 gap-7">
@@ -7,7 +7,7 @@
           <span
             class="font-semibold leading-normal text-white 2xl:text-3xl lg:text-2xl text-xl"
           >
-            Seaside Serenity Villa</span
+            {{ property.name }}</span
           >
           <div class="flex flex-row gap-5">
             <div
@@ -30,14 +30,16 @@
               </svg>
               <span
                 class="text-white leading-normal font-medium 2xl:text-lg text-sm"
-                >Malibu, California</span
+                >{{ property.city }}, {{ property.state }},
+                {{ property.country }}</span
               >
             </div>
             <div class="lg:hidden flex flex-row items-center gap-1">
               <p>Price</p>
-              <span class="font-semibold leading-normal text-white text-lg"
-                >$1,250,000</span
-              >
+              <span class="font-semibold leading-normal text-white text-lg">{{
+                property.listingPrice
+                  | currency : undefined : undefined : "1.0-0"
+              }}</span>
             </div>
           </div>
         </div>
@@ -45,39 +47,47 @@
           <p>Price</p>
           <span
             class="font-semibold leading-normal text-white 2xl:text-2xl lg:text-xl"
-            >$1,250,000</span
+            >{{
+              property.listingPrice | currency : undefined : undefined : "1.0-0"
+            }}</span
           >
         </div>
       </div>
       <div
         class="flex flex-col bg-gray-10 shadow-inset-1-gray-custom rounded-xl 2xl:gap-7 2xl:p-12 lg:p-10 gap-5 p-5"
       >
-        <div class="flex lg:flex-col flex-col-reverse 2xl:gap-7 gap-5">
+        <div
+          class="flex items-center lg:flex-col flex-col-reverse 2xl:gap-7 gap-5"
+        >
           <div
-            class="md:grid md:grid-cols-9 flex flex-row bg-gray-8 shadow-inset-1-gray-custom rounded-xl 2xl:p-5 2xl:gap-5 p-2.5 gap-2.5 overflow-auto"
+            class="md:grid md:grid-cols-9 w-fit flex flex-row bg-gray-8 shadow-inset-1-gray-custom rounded-xl 2xl:p-5 2xl:gap-5 p-2.5 gap-2.5 overflow-auto"
           >
-            <img
-              *ngFor="let item of images; index as i"
-              [id]="'image-' + i"
-              src="{{ item }}"
-              class="2xl:rounded-lg rounded-md min-w-16"
-              [ngClass]="{
-                'opacity-50': currentIndexes[0] != i
-              }"
-              (click)="select(i)"
-              #imageList
-            />
+            <div
+              *ngFor="let item of property.houseImgs; index as i"
+              class="2xl:max-h-24 2xl:max-w-36 lg:max-h-20 lg:max-w-32 max-h-10 max-w-16 overflow-hidden flex-shrink-0"
+            >
+              <img
+                [id]="'image-' + i"
+                src="{{ item }}"
+                class="2xl:rounded-lg rounded-md w-full h-full object-cover"
+                [ngClass]="{
+                  'opacity-50': currentIndexes[0] != i
+                }"
+                (click)="select(i)"
+                #imageList
+              />
+            </div>
           </div>
 
-          <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
+          <div class="grid md:grid-cols-2 grid-cols-1 gap-7 items-center">
             <img
               *ngFor="let item of currentIndexes"
-              src="{{ images[item] }}"
-              class="md:block hidden rounded-lg w-full"
+              src="{{ property.houseImgs[item] }}"
+              class="md:block hidden rounded-lg w-fit max-h-[432px]"
             />
             <img
-              src="{{ images[currentIndexes[0]] }}"
-              class="md:hidden block rounded-lg w-full"
+              src="{{ property.houseImgs[currentIndexes[0]] }}"
+              class="md:hidden block rounded-lg w-fit max-h-[432px]"
             />
           </div>
         </div>
@@ -91,7 +101,7 @@
             </button>
             <div class="flex gap-1 flex-row w-fit">
               <div
-                *ngFor="let item of images; index as i"
+                *ngFor="let item of property.houseImgs; index as i"
                 class="2xl:w-5 2xl:h-1 w-3 h-1 rounded-full {{
                   currentIndexes[0] == i ? 'bg-purple-60' : 'bg-gray-30'
                 }}"
@@ -111,10 +121,7 @@
         <div class="flex flex-col gap-3.5">
           <span>Description</span>
           <p>
-            Discover your own piece of paradise with the Seaside Serenity Villa.
-            T With an open floor plan, breathtaking ocean views from every room,
-            and direct access to a pristine sandy beach, this property is the
-            epitome of coastal living.
+            {{ property.description }}
           </p>
         </div>
         <div class="flex flex-row shadow-inset-1-gray-top-custom gap-5 pt-5">
@@ -123,7 +130,7 @@
               <img src="icons/bed-gray.svg" />
               <p>Bedrooms</p>
             </div>
-            <span>04</span>
+            <span>{{ property.bedrooms | number : "2.0-0" }}</span>
           </div>
           <app-divider [vertical]="true"></app-divider>
           <div class="description">
@@ -131,7 +138,7 @@
               <img src="icons/bath-gray.svg" />
               <p>Bathrooms</p>
             </div>
-            <span>03</span>
+            <span>{{ property.bathroom | number : "2.0-0" }}</span>
           </div>
           <app-divider
             [vertical]="true"
@@ -143,7 +150,7 @@
                 <img src="icons/area.svg" />
                 <p>Area</p>
               </div>
-              <span>2,500 Square Feet</span>
+              <span>{{ property.area | number }} Square Feet</span>
             </div>
           </div>
         </div>
@@ -154,34 +161,19 @@
               <img src="icons/area.svg" />
               <p>Area</p>
             </div>
-            <span>2,500 Square Feet</span>
+            <span>{{ property.area | number }} Square Feet</span>
           </div>
         </div>
       </div>
       <div class="description-container">
         <span>Key Features and Amenities</span>
         <div class="flex flex-col gap-7">
-          <div class="key-features">
+          <div
+            *ngFor="let item of property.featuresAndAmenities"
+            class="key-features"
+          >
             <img src="icons/bolt-fill.svg" />
-            <p>Expansive oceanfront terrace for outdoor entertaining</p>
-          </div>
-          <div class="key-features">
-            <img src="icons/bolt-fill.svg" />
-            <p>Gourmet kitchen with top-of-the-line appliances</p>
-          </div>
-          <div class="key-features">
-            <img src="icons/bolt-fill.svg" />
-            <p>Private beach access for morning strolls and sunset views</p>
-          </div>
-          <div class="key-features">
-            <img src="icons/bolt-fill.svg" />
-            <p>
-              Master suite with a spa-inspired bathroom and ocean-facing balcony
-            </p>
-          </div>
-          <div class="key-features">
-            <img src="icons/bolt-fill.svg" />
-            <p>Private garage and ample storage space</p>
+            <p>{{ item }}</p>
           </div>
         </div>
       </div>
@@ -229,7 +221,10 @@
           <div class="w-full relative">
             <input
               type="text"
-              placeholder="Seaside Serenity Villa, Malibu, California"
+              value="{{ property.name }}, {{ property.city }}, {{
+                property.state
+              }}, {{ property.country }}"
+              readonly
             />
             <img src="icons/map-pin-white-90.svg" alt="" />
           </div>
@@ -285,8 +280,10 @@
           <p class="pricing-p">Listing Price</p>
           <span
             class="text-white leading-normal font-semibold 2xl:text-4xl lg:text-3xl text-2xl"
-            >$1,250,000</span
-          >
+            >{{
+              property.listingPrice | currency : undefined : undefined : "1.0-0"
+            }}
+          </span>
         </div>
         <div class="xl:w-[85%] flex flex-col 2xl:gap-12 lg:gap-10 gap-5">
           <!-- Additional Fees -->
@@ -302,7 +299,12 @@
             <div class="pricing-container">
               <app-pricing
                 heading="Property Transfer Tax"
-                price="$25,000"
+                price="{{
+                  property.propertyTransferTax
+                    ? (property.propertyTransferTax
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 text="Based on the sale price and local regulations"
               ></app-pricing>
 
@@ -310,7 +312,12 @@
 
               <app-pricing
                 heading="Legal Fees"
-                price="$3,000"
+                price="{{
+                  property.legalFees
+                    ? (property.legalFees
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 text="Approximate cost for legal services, including title transfer"
               ></app-pricing>
             </div>
@@ -321,7 +328,12 @@
             <div class="pricing-container">
               <app-pricing
                 heading="Home Inspection"
-                price="$500"
+                price="{{
+                  property.homeInspection
+                    ? (property.homeInspection
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 text="Recommended for due diligence"
               ></app-pricing>
 
@@ -329,7 +341,12 @@
 
               <app-pricing
                 heading="Property Insurance"
-                price="$1,200"
+                price="{{
+                  property.propertyInsurance
+                    ? (property.propertyInsurance
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 text="Annual cost for comprehensive property insurance"
               ></app-pricing>
             </div>
@@ -339,7 +356,12 @@
 
             <app-pricing
               heading="Mortgage Fees"
-              price="Varies"
+              price="{{
+                property.mortgageFees
+                  ? (property.mortgageFees
+                    | currency : undefined : undefined : '1.0-0')
+                  : 'Varies'
+              }} "
               text="If applicable, consult with your lender for specific details"
             ></app-pricing>
           </div>
@@ -356,7 +378,12 @@
 
             <app-pricing
               heading="Property Taxes"
-              price="$1,250"
+              price="{{
+                property.propertyTransferTax
+                  ? (property.propertyTaxes! / 12
+                    | currency : undefined : undefined : '1.0-0')
+                  : 'Not provided'
+              }}"
               text="Approximate monthly property tax based on the sale price and local rates"
             ></app-pricing>
 
@@ -365,7 +392,12 @@
 
             <app-pricing
               heading="Homeowners' Association Fee"
-              price="$300"
+              price="{{
+                property.homeownersAssociationFee
+                  ? (property.homeownersAssociationFee
+                    | currency : undefined : undefined : '1.0-0')
+                  : 'Not needed'
+              }}"
               text="Monthly fee for common area maintenance and security"
             ></app-pricing>
           </div>
@@ -383,7 +415,10 @@
             <div class="pricing-container">
               <app-pricing
                 heading="Listing Price"
-                price="$1,250,000"
+                price="{{
+                  property.listingPrice
+                    | currency : undefined : undefined : '1.0-0'
+                }}"
                 [text]="null"
               ></app-pricing>
 
@@ -391,7 +426,13 @@
 
               <app-pricing
                 heading="Additional Fees"
-                price="$29,700"
+                price="{{
+                  (property.propertyTaxes ?? 0) +
+                    (property.legalFees ?? 0) +
+                    (property.homeInspection ?? 0) +
+                    (property.propertyInsurance ?? 0)
+                    | currency : undefined : undefined : '1.0-0'
+                }}"
                 text="Property transfer tax, legal fees, inspection, insurance"
               ></app-pricing>
             </div>
@@ -402,7 +443,10 @@
             <div class="pricing-container">
               <app-pricing
                 heading="Down Payment"
-                price="$250,000"
+                price="{{
+                  property.listingPrice * 0.2
+                    | currency : undefined : undefined : '1.0-0'
+                }}"
                 text="20%"
               ></app-pricing>
 
@@ -410,7 +454,10 @@
 
               <app-pricing
                 heading="Mortgage Amount"
-                price="$1,000,000"
+                price="{{
+                  property.listingPrice * 0.8
+                    | currency : undefined : undefined : '1.0-0'
+                }}"
                 text="If applicable"
               ></app-pricing>
             </div>
@@ -429,7 +476,12 @@
             <div class="pricing-container">
               <app-pricing
                 heading="Property Taxes"
-                price="$1,250"
+                price="{{
+                  property.propertyTransferTax
+                    ? (property.propertyTaxes! / 12
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 [text]="null"
               ></app-pricing>
 
@@ -437,7 +489,12 @@
 
               <app-pricing
                 heading="Homeowners' Association Fee"
-                price="$29,700"
+                price="{{
+                  property.homeownersAssociationFee
+                    ? (property.homeownersAssociationFee
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not needed'
+                }}"
                 [text]="null"
               ></app-pricing>
             </div>
@@ -456,7 +513,12 @@
 
               <app-pricing
                 heading="Property Insurance"
-                price="$100"
+                price="{{
+                  property.propertyInsurance
+                    ? (property.propertyInsurance! / 12
+                      | currency : undefined : undefined : '1.0-0')
+                    : 'Not provided'
+                }}"
                 text="Approximate monthly cost"
               ></app-pricing>
             </div>
