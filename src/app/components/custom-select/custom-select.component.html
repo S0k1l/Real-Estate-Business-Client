@@ -1,0 +1,65 @@
+<div class="relative h-full rounded-inherit">
+  <div
+    [ngClass]="{
+      '2xl:ring-2 ring-1 ring-gray-20': isDropdownVisible,
+      '!rounded-b-none': isDropdownVisible && filteredOptions.length > 0,
+    }"
+    class="flex h-full gap-3 items-center cursor-pointer rounded-inherit 2xl:p-5 px-3.5 py-3 select-none"
+    (click)="toggleDropdown()"
+    (keydown)="handleArrows($event)"
+    tabindex="0"
+  >
+    <div class="w-full h-full flex items-center gap-2">
+      <img
+        *ngIf="imgUrl"
+        [src]="imgUrl"
+        class="2xl:w-6 w-5"
+        draggable="false"
+      />
+      <app-divider
+        *ngIf="imgUrl"
+        [vertical]="true"
+        class="h-full"
+      ></app-divider>
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (keyup)="filterOptions()"
+        [placeholder]="selectedOption.display"
+        class="outline-none bg-transparent pt-px w-full border-b placeholder-inherit border-transparent focus:border-gray-40 focus:placeholder-transparent"
+      />
+    </div>
+    <div
+      class="flex items-center bg-gray-10 rounded-full 2xl:w-8 2x:h-8 w-7 h-7 p-1"
+    >
+      <img
+        [ngClass]="{ 'rotate-180': isDropdownVisible }"
+        src="icons/expand-arrow.svg"
+        draggable="false"
+        class="transition-all duration-75 ease-linear"
+      />
+    </div>
+  </div>
+  <div
+    class="absolute z-10 inset-x-0 top-full max-h-60 overflow-auto outline lg:outline-2 outline-1 outline-gray-20 bg-gray-20"
+    *ngIf="isDropdownVisible && filteredOptions.length > 0"
+  >
+    <ul #dropdownList class="list-none m-0 p-0">
+      <li
+        *ngFor="let option of filteredOptions; index as i"
+        (click)="selectOption(option, i)"
+        (keyup)="handleEnter($event, i, option)"
+        (keydown)="handleArrows($event)"
+        [ngClass]="{
+          'bg-gray-40 hover:bg-gray-40 focus:bg-gray-40':
+            option.value == selectedOption.value
+        }"
+        class="py-2 px-5 text-white-90 cursor-pointer z-50 hover:bg-gray-30 focus:bg-gray-30 focus:outline-none"
+        [id]="option.value"
+        tabindex="0"
+      >
+        {{ option.display }}
+      </li>
+    </ul>
+  </div>
+</div>

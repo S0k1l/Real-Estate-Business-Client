@@ -66,17 +66,8 @@ p {
   @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
 }
 
-.form-field select {
-  background-image: url(/icons/select-arrow.svg);
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  -moz-appearance: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  @apply bg-gray-10 shadow-inset-1-gray-custom rounded-lg placeholder-gray-40 text-gray-40 font-medium leading-5;
-  @apply focus:outline-none 2xl:focus:ring-2 md:focus:ring-1 focus:ring-gray-20;
-  @apply 2xl:px-5 2xl:py-6 2xl:text-lg 2xl:rounded-lg px-5 py-4 rounded-md text-sm;
-  @apply 2xl:bg-[length:32px_32px] 2xl:bg-[center_right_20px] md:bg-[center_right_14px] bg-[length:28px_28px] bg-[center_right_10px];
+.form-field > app-custom-select {
+  @apply 2xl:text-lg 2xl:rounded-lg rounded-md text-sm bg-gray-10 text-gray-40 placeholder-gray-40 font-medium leading-5 shadow-inset-1-gray-custom;
 }
 
 .form-field > div {

@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      borderRadius: {
+        inherit: "inherit",
+      },
       colors: {
         gray: {
           8: "#141414",

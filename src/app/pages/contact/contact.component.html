@@ -74,16 +74,24 @@
 
         <div class="form-field">
           <label>Inquiry Type</label>
-          <select>
-            <option selected>Select Inquiry Type</option>
-          </select>
+          <app-custom-select
+            [options]="inquiryType"
+            [defaultOption]="{
+              value: null,
+              display: 'Select Inquiry Types'
+            }"
+          ></app-custom-select>
         </div>
 
         <div class="form-field">
           <label>How Did You Hear About Us?</label>
-          <select>
-            <option selected>Select</option>
-          </select>
+          <app-custom-select
+            [options]="howDidYouHearAboutUs"
+            [defaultOption]="{
+              value: null,
+              display: 'Select'
+            }"
+          ></app-custom-select>
         </div>
 
         <!-- Row 3 -->

@@ -12,11 +12,18 @@
   </div>
 
   <!-- Search For A Property -->
-  <div
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
     class="flex flex-col justify-center 2xl:-mt-14 2xl:gap-2.5 2xl:px-40 lg:-mt-11 lg:gap-0.5 lg:px-20 md:px-8 px-4 gap-5"
   >
     <div class="flex relative 2xl:px-36 lg:px-20">
-      <input type="text" placeholder="Search For A Property" class="input" />
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Search For A Property"
+        class="input"
+      />
       <button
         class="absolute flex btn-purple my-auto inset-y-0 h-fit 2xl:right-40 2xl:gap-2 lg:right-24 md:gap-1.5 right-2.5 !px-5 !py-3.5"
       >
@@ -25,62 +32,52 @@
       </button>
     </div>
     <div
-      class="grid lg:grid-cols-5 md:grid-cols-2 rounded-xl bg-gray-10 gap-5 lg:p-2.5 p-5"
+      class="grid lg:grid-cols-5 md:grid-cols-2 rounded-xl bg-gray-10 gap-5 lg:p-2.5 p-5 search-selects"
     >
-      <div class="select md:!col-span-2">
-        <div>
-          <img src="icons/map-pin.svg" />
-          <app-divider [vertical]="true"></app-divider>
-        </div>
-        <select>
-          <option selected [value]="null">Location</option>
-          <option *ngFor="let item of locations">
-            {{ item }}
-          </option>
-        </select>
-      </div>
-      <div class="select">
-        <div>
-          <img src="icons/home-modern.svg" />
-          <app-divider [vertical]="true"></app-divider>
-        </div>
-        <select>
-          <option selected>Property Type</option>
-          <option [value]="item.id" *ngFor="let item of types">
-            {{ item.type }}
-          </option>
-        </select>
-      </div>
-      <div class="select">
-        <div>
-          <img src="icons/banknotes-solid.svg" />
-          <app-divider [vertical]="true"></app-divider>
-        </div>
-        <select>
-          <option selected>Pricing Range</option>
-        </select>
-      </div>
-      <div class="select">
-        <div>
-          <img src="icons/cube.svg" />
-          <app-divider [vertical]="true"></app-divider>
-        </div>
-        <select>
-          <option selected>Property Size</option>
-        </select>
-      </div>
-      <div class="select">
-        <div>
-          <img src="icons/calendar.svg" />
-          <app-divider [vertical]="true"></app-divider>
-        </div>
-        <select>
-          <option selected>Build Year</option>
-        </select>
-      </div>
+      <!-- Locations -->
+      <app-custom-select
+        *ngIf="locations"
+        formControlName="location"
+        [options]="locations"
+        [defaultOption]="{ value: null, display: 'Location' }"
+        imgUrl="icons/map-pin.svg"
+      ></app-custom-select>
+
+      <!-- Property Type -->
+      <app-custom-select
+        *ngIf="types"
+        formControlName="type"
+        [options]="types"
+        [defaultOption]="{ value: null, display: 'Property Type' }"
+        imgUrl="icons/home-modern.svg"
+      ></app-custom-select>
+
+      <!-- Pricing Range -->
+      <app-custom-select
+        formControlName="priceRange"
+        [options]="priceRanges"
+        [defaultOption]="{ value: null, display: 'Pricing Range' }"
+        imgUrl="icons/banknotes-solid.svg"
+      ></app-custom-select>
+
+      <!-- Property Size -->
+      <app-custom-select
+        formControlName="propertySize"
+        [options]="propertySize"
+        [defaultOption]="{ value: null, display: 'Property Size' }"
+        imgUrl="icons/cube.svg"
+      ></app-custom-select>
+
+      <!-- Build Year -->
+      <app-custom-select
+        [options]="buildYears"
+        [defaultOption]="{ value: null, display: 'Build Year' }"
+        imgUrl="icons/calendar.svg"
+      ></app-custom-select>
     </div>
-  </div>
+  </form>
 </div>
+
 <div class="sections">
   <!-- Properties -->
   <app-section
@@ -128,38 +125,48 @@
         <!-- Row 2 -->
         <div class="form-field">
           <label>Preferred Location</label>
-          <select>
-            <option selected>Select Location</option>
-          </select>
+          <app-custom-select
+            *ngIf="locations"
+            [options]="locations"
+            [defaultOption]="{ value: null, display: 'Select Location' }"
+          ></app-custom-select>
         </div>
 
         <div class="form-field">
           <label>Property Type</label>
-          <select>
-            <option selected>Select Property Type</option>
-          </select>
+          <app-custom-select
+            *ngIf="types"
+            [options]="types"
+            [defaultOption]="{ value: null, display: 'Select Property Type' }"
+          ></app-custom-select>
         </div>
 
         <div class="form-field">
           <label>No. of Bathrooms</label>
-          <select>
-            <option selected>Select no. of Bedrooms</option>
-          </select>
+          <app-custom-select
+            [options]="bathAndBeds"
+            [defaultOption]="{
+              value: null,
+              display: 'Select no. of Bathrooms'
+            }"
+          ></app-custom-select>
         </div>
 
         <div class="form-field">
           <label>No. of Bedrooms</label>
-          <select>
-            <option selected>Select no. of Bedrooms</option>
-          </select>
+          <app-custom-select
+            [options]="bathAndBeds"
+            [defaultOption]="{ value: null, display: 'Select no. of Bedrooms' }"
+          ></app-custom-select>
         </div>
 
         <!-- Row 3 -->
         <div class="form-field md:col-span-2 grid-cols-1">
           <label>Budget</label>
-          <select>
-            <option selected>Select Budget</option>
-          </select>
+          <app-custom-select
+            [options]="priceRanges"
+            [defaultOption]="{ value: null, display: 'Select Budget' }"
+          ></app-custom-select>
         </div>
 
         <div class="form-field md:col-span-2 grid-cols-1">
