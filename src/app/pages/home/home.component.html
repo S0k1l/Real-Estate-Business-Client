@@ -31,7 +31,13 @@
         <button class="btn shadow-inset-1-gray-custom hover:bg-gray-15">
           Learn More
         </button>
-        <button class="btn-purple">Browse Properties</button>
+        <button
+          [routerLink]="['/properties']"
+          routerLinkActive="router-link-active"
+          class="btn-purple"
+        >
+          Browse Properties
+        </button>
       </div>
       <app-stats-section class="w-full"></app-stats-section>
     </div>
@@ -70,13 +76,17 @@
   offers a glimpse into exceptional homes and investments available
   through Estatein. Click "View Details" for more information.'
   >
-    <button class="btn-gray">View All Testimonials</button>
+    <button [routerLink]="['/properties']" class="btn-gray">
+      View All Properties
+    </button>
     <app-cards-pagination
       btnText="View All Properties"
       [type]="cardTypes.propertiesCard"
       [propertyType]="propertyTypes.detailed"
     >
-      <button class="btn-gray">View All Properties</button>
+      <button [routerLink]="['/properties']" class="btn-gray">
+        View All Properties
+      </button>
     </app-cards-pagination>
   </app-section>
 
