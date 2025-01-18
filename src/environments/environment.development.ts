@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: '',
+  apiUrl: 'https://realestatebusinessapi-latest.onrender.com/api',
 };
