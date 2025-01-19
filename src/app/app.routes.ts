@@ -8,26 +8,32 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
   {
+    title: 'Home',
     path: '',
     component: HomeComponent,
   },
   {
+    title: 'About Us',
     path: 'about',
     component: AboutComponent,
   },
   {
+    title: 'Properties',
     path: 'properties',
     component: PropertiesComponent,
   },
   {
+    title: 'Property Details',
     path: 'properties/:id',
     component: PropertyComponent,
   },
   {
+    title: 'Services',
     path: 'services',
     component: ServicesComponent,
   },
   {
+    title: 'Contact',
     path: 'contact',
     component: ContactComponent,
   },

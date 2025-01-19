@@ -22,6 +22,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  title = 'Home';
   cardTypes = CARD_TYPES;
   propertyTypes = PROPERTY_TYPES;
 }
